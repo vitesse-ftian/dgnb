@@ -1,0 +1,69 @@
+-- Example of PHI Transducer.
+-- It is a SQL select statement 
+select 
+--
+-- Output columns 
+--
+dg_utils.transducer_column_int4(1) as i32,
+dg_utils.transducer_column_float4(2) as f32,
+dg_utils.transducer_column_text(3) as t,
+--
+-- Transuducer functions, $PHI$ is PostgreSQL dollar quoted string.  
+--
+dg_utils.transducer($PHI$PhiExec go
+// Following is a valid golang program.
+// At the begining should be input/output spec.   We support bool,
+// int32/64, float32/64, string.
+//
+// BEGIN INPUT TYPES
+// a int32
+// b float32
+// c string
+// END INPUT TYPES
+//
+// BEGIN OUTPUT TYPES
+// x int32
+// y float32
+// z string
+// END OUTPUT TYPES
+//
+
+package main
+
+func do_x() {
+	for rec := NextInput(); rec != nil; rec = NextInput() {
+		Log("X get one rec\n")
+		a, aok := rec.Get_a()
+		b, bok := rec.Get_b()
+		c, cok := rec.Get_c()
+		Log("Rec: %d %v, %f %v, %s %v\n", a, aok, b, bok, c, cok)
+
+		if a == 42 {
+			panic("Too old to do this")
+		}
+
+		var outrec OutRecord
+		if aok {
+			outrec.Set_x(a * 2)
+		}
+		if bok {
+			outrec.Set_y(b * 2.0)
+		}
+		if cok {
+			outrec.Set_z("foo" + c) 
+		}
+
+		WriteOutput(&outrec)
+	}
+	Log("X is done\n")
+	WriteOutput(nil)
+}
+
+func main() {
+	do_x()
+}
+$PHI$), 
+-- The following is input the transducer, any sql works.
+t.i, t.f::float4, t.t 
+from t; 
+;
