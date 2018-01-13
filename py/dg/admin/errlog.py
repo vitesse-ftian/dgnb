@@ -20,7 +20,6 @@ def xt_errlog(conn, lv="ERROR+", limit=None):
 if __name__ == '__main__':
     c = dg.conn.Conn("host=localhost")
     xt = xt_errlog(c, limit = 10)
-    rows = xt.execute()
-    print(rows)
+    print(xt.show())
 
 
