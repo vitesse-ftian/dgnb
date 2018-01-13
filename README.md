@@ -12,12 +12,9 @@ super user role.
 
 The Jupyter should install the following modules,
 ```
-# For some plotting example, install on system
+# For some plotting example, install on system.
 sudo pip3 install matplotlib
-
-# For deepgreen tools, install for individual user.
-git clone https://github.com/vitesse-ftian/dgtools
-cd dgtools/py
-python3 setup.py install --user
+# Install dg python tools, for individual user.
+(cp py; python3 setup.py install --user)
 ```
 
