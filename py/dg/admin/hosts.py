@@ -17,18 +17,19 @@ dg_utils.transducer_column_int8(3) as vmstat_r,
 dg_utils.transducer_column_int8(4) as vmstat_b, 
 dg_utils.transducer_column_int8(5) as vmstat_swpd, 
 dg_utils.transducer_column_int8(6) as vmstat_free, 
-dg_utils.transducer_column_int8(7) as vmstat_cache, 
-dg_utils.transducer_column_int8(8) as vmstat_si, 
-dg_utils.transducer_column_int8(9) as vmstat_so, 
-dg_utils.transducer_column_int8(10) as vmstat_bi, 
-dg_utils.transducer_column_int8(11) as vmstat_bo, 
-dg_utils.transducer_column_int8(12) as vmstat_in, 
-dg_utils.transducer_column_int8(13) as vmstat_cs, 
-dg_utils.transducer_column_int8(14) as vmstat_us, 
-dg_utils.transducer_column_int8(15) as vmstat_sy, 
-dg_utils.transducer_column_int8(16) as vmstat_id, 
-dg_utils.transducer_column_int8(17) as vmstat_wa, 
-dg_utils.transducer_column_int8(18) as vmstat_st, 
+dg_utils.transducer_column_int8(7) as vmstat_buff, 
+dg_utils.transducer_column_int8(8) as vmstat_cache, 
+dg_utils.transducer_column_int8(9) as vmstat_si, 
+dg_utils.transducer_column_int8(10) as vmstat_so, 
+dg_utils.transducer_column_int8(11) as vmstat_bi, 
+dg_utils.transducer_column_int8(12) as vmstat_bo, 
+dg_utils.transducer_column_int8(13) as vmstat_in, 
+dg_utils.transducer_column_int8(14) as vmstat_cs, 
+dg_utils.transducer_column_int8(15) as vmstat_us, 
+dg_utils.transducer_column_int8(16) as vmstat_sy, 
+dg_utils.transducer_column_int8(17) as vmstat_id, 
+dg_utils.transducer_column_int8(18) as vmstat_wa, 
+dg_utils.transducer_column_int8(19) as vmstat_st, 
 --
 -- transducer function call, as UDF.
 --
@@ -51,6 +52,7 @@ vitessedata.phi.DeclareTypes('''
 // vmstat_b int64
 // vmstat_swpd int64
 // vmstat_free int64
+// vmstat_buff int64
 // vmstat_cache int64
 // vmstat_si int64
 // vmstat_so int64
@@ -125,6 +127,7 @@ def xt_vmstat_hosts(conn, nsec=5):
         avg(#0.vmstat_b#) as vmstat_b,
         avg(#0.vmstat_swpd#) as vmstat_swpd,
         avg(#0.vmstat_free#) as vmstat_free,
+        avg(#0.vmstat_buff#) as vmstat_buff,
         avg(#0.vmstat_cache#) as vmstat_cache,
         avg(#0.vmstat_si#) as vmstat_si,
         avg(#0.vmstat_so#) as vmstat_so,
