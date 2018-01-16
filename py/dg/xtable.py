@@ -149,6 +149,12 @@ class XTable:
         self.build_sql()
         return self.conn.execute(self.sql) 
 
+    def coldata(self, colname, rows):
+        for idx, col in enumerate(self.schema):
+            if col.name == colname:
+                return [r[idx] for r in rows]
+        raise ValueError("{0} is not a valid column name.".format(colname))
+
     def show(self, tablefmt='psql'):
         res = self.execute()
         return tabulate.tabulate(res, [col.name for col in self.schema], tablefmt)
@@ -186,5 +192,10 @@ if __name__ == '__main__':
 
     t5 = t4.select(select = 'n_comment', samplerows='3')
     print(t5.show())
+
+    rows = t4.execute()
+    print(t4.coldata('n_comment', rows))
+
+
 
 
