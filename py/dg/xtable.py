@@ -111,6 +111,36 @@ class XTable:
                     state = "doneCol"
         self.schema.pop()
 
+    def select(self, alias='', select=None, where=None, limit=None, samplerows=None, samplepercent=None): 
+        sql = '' 
+        if select == None:
+            sql = 'select * from #0#'
+        else:
+            sql = 'select {0} from #0#'.format(select)
+
+        if where != None:
+            sql = sql + " where " + where
+
+        nlimit = 0
+        if limit != None:
+            nlimit += 1
+            sql = sql + " limit {0}".format(limit)
+
+        if samplerows != None:
+            nlimit += 1
+            sql = sql + " limit sample {0} rows".format(samplerows)
+
+        if samplepercent != None:
+            nlimit += 1
+            sql = sql + " limit sample {0} percent".format(samplepercent)
+
+        if nlimit > 1:
+            raise ValueError("SQL Select can have at most one limit/sample clause")
+
+        ret = XTable(self.conn, sql, alias, inputs=[self])
+        ret.explain()
+        return ret
+
     def cursor(self):
         self.build_sql()
         return self.conn.cursor(self.sql)
@@ -153,5 +183,8 @@ if __name__ == '__main__':
     print("Same: {0}\n".format( sameData(t4, t4)))
     print("Not Same: {0}\n".format( sameData(t1, t3)))
     print("Not Same: {0}\n".format( sameData(t1, t4)))
+
+    t5 = t4.select(select = 'n_comment', samplerows='3')
+    print(t5.show())
 
 
