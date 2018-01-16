@@ -1,7 +1,7 @@
 Install/Enable Deepgreen Data Science Tools
 ===========================================
 
-First, download and install latest [deepgreen](https://vitessedata.com/deepgreen-db-download/).  Then run
+First, download and install latest [deepgreen](http://vitessedata.com/deepgreen-db-download/).  Then run
 ```
 dg setup -all dbname
 ```
