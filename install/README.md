@@ -1,42 +1,38 @@
-Offline install for Deepgreen and Transducer
-============================================
+Install/Enable Deepgreen Data Science Tools
+===========================================
 
-Run download.sh to download all the necessary binaries.
-From OS distribution (repo/CD/DVD), install necessary tools.  
-Note that pip is port of EPEL repo, so you may need enable 
-that repo.
+First, download and install latest [deepgreen](https://vitessedata.com/deepgreen-db-download/).  Then run
 ```
-rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-relase-latest-7.noarch.rpm
+dg setup -all dbname
 ```
 
-We recomend the following
+You can run dg setup against template1 so that later created database
+will automatically setup everything.   To use data science features you
+need to install necessary software on all hosts in deepgreen 
+cluster (use gpssh).  We recommend you to install at least golang and 
+python transducer.
 
-```
-yum install -y epel-release
-yum install -y unzip which tar more git vim sudo util-linux-ng passwd openssh-clients openssh-server
-yum install -y net-tools iproute tmux
+To Enable java transducer and xdrive to connect other database using JDBC
+--------------------------------------------------------------------------
+Install JDK/JRE 1.8+ 
 
-yum install -y python-devel python-pip 
-pip install --upgrade pip 
-pip install setuptools
-``` 
-
-Install deepgreen using downloaded binary. 
-Install go 
+Enable golang Transducer
+------------------------
+Download [golang 1.9.1](https://storage.googleapis.com/golang/go1.9.1.linux-amd64.tar.gz) 
 ```
-sudo tar -C /usr/local -xzf go*.tar.gz
-```
-
-Also, create ~/go dir
-```
+sudo tar -C /usr/local -xzf go1.9.1.linux-adm64.tar.gz
 mkdir ~/go
-export GOPATH=~/go
 ```
 
-Install python protobuf
+Enable python Transducer
+------------------------
+Need to install python protobuf
 ```
-sudo pip install --no-index --find-links=file:/path_to_curr_dir protobuf
+sudo pip install protobuf
 ```
 
-After this, initdb and start deepgreen, then you should be able to run the basic.sql and basicpy.sql in transducer.
+Enable tensorflow
+-----------------
+Follow [tensorflow install instruction](https://www.tensorflow.org/install).  Tensorflow installation
+includes python protobuf.
 

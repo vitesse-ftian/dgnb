@@ -1,14 +1,16 @@
-# dgnb
 Deepgreen Notebooks
+====================
+
+Installation
+-------------
 
 First, please follow the instructions in the install dir to install deepgreen.
+Next, install [jupyter](http://jupyter.org/install) or [jupyterlab](https://github.com/jupyterlab/jupyterlab#installation)
 
-Then, please install jupyterlab.  You can install jupyterlab on the
-same machine as deepgreen master, run jupyter lab on deepgreen masteror
-and open web access to jupyter lab. Or, you can install jupyther 
-on client desktop.  Make sure you update deepgreen to allow sql remote 
-connection.  Some notebook, esp those admin related, may require database
-super user role.
+Jupyter or jupyterlab can be installed on deepgreen master node or on 
+client desktop.  If installed on client desktop, make sure you configure
+deepgreen to allow remote sql access.  Some notebooks, esp those admin 
+related, may require database super user role.
 
 The Jupyter should install the following modules,
 ```
@@ -17,4 +19,3 @@ sudo pip3 install matplotlib
 # Install dg python tools, for individual user.
 (cp py; python3 setup.py install --user)
 ```
-
