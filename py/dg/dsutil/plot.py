@@ -41,7 +41,7 @@ class LineChart:
         else:
             self.acc = acc
 
-    def refresh(self):
+    def draw(self):
         xaxis = None
         legend = []
         for series in self.acc.acc:
@@ -52,11 +52,4 @@ class LineChart:
             legend.append(series)
         self.ax.legend(legend)
         self.fig.canvas.draw()
-
-
-
-
-
-
-
 

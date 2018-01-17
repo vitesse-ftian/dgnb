@@ -6,6 +6,7 @@ Installation
 
 First, please follow the instructions in the install dir to install deepgreen.
 Next, install [jupyter](http://jupyter.org/install) or [jupyterlab](https://github.com/jupyterlab/jupyterlab#installation)
+Jupyter (notebook) is not as fancy but more stable.
 
 Jupyter or jupyterlab can be installed on deepgreen master node or on 
 client desktop.  If installed on client desktop, make sure you configure
