@@ -4,6 +4,17 @@ class XCol:
     def __init__(self, n, t):
         self.name = n
         self.type = t
+    def pg_tr_type(self):
+        if self.type in ["int", "int4", "integer"]:
+            return ("int4", "int32")
+        elif self.type in ["int8", "bigint"]:
+            return ("int8", "int64")
+        elif self.type in ["float", "float4"]:
+            return ("float4", "float32")
+        elif self.type in ["double precision", "float8"]:
+            return ("float8", "float64")
+        else:
+            return ("text", "string")
 
 class XTable:
     def __init__(self, c, sql="", alias="", inputs=None):
