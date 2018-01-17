@@ -1,4 +1,5 @@
 import urllib
+import dg.xtable
 from dg.xtable import XCol
 
 class CsvXt: 
