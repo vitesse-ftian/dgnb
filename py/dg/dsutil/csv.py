@@ -13,7 +13,7 @@ class CsvXt:
         return self
 
     def xtable_sql(self):
-        sql = "select "
+        sql = "select " + ",".join([col.name for col in self.schema]) + " from ( select "
         for idx, col in enumerate(self.schema):
             pgt = col.pg_tr_type()[0]
             sql += "dg_utils.transducer_column_{0}({1})::{2} as {3},\n".format(pgt, idx+1, pgt, col.name)
@@ -80,13 +80,20 @@ if __name__ == '__main__':
         vitessedata.phi.WriteOutput(outrec)
 
     vitessedata.phi.WriteOutput(None)
-$PHI$), t.* from (select 1::int4) t
+$PHI$), t.* from (select 1::int4) t) tmpcsvt
 """
         return sql
 
     def xtable(self, conn):
         sql = self.xtable_sql()
         return dg.xtable.fromQuery(conn, sql)
+
+    def ctas(self, conn, tablename, distributed_by=None):
+        xt = self.xtable(conn)
+        sql = "create table {0} as {1}".format(tablename, xt.sql) 
+        if distributed_by != None:
+            sql += " distributed by ({0})".format(distributed_by)
+        conn.execute_only(sql)
 
 if __name__ == '__main__':
     import dg.conn

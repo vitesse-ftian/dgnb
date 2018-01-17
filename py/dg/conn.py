@@ -41,6 +41,12 @@ class Conn:
         self.conn.commit()
         return rows
 
+    def execute_only(self, sql):
+        cur = self.conn.cursor()
+        cur.execute(sql) 
+        cur.close()
+        self.conn.commit()
+
     def cursor(self, sql):
         cur = self.conn.cursor()
         cur.execute(sql) 
