@@ -148,7 +148,7 @@ def xt_vmstat_hosts(conn, nsec=5):
 
 if __name__ == '__main__':
     import sys
-    c = dg.conn.Conn("host=localhost dbname={0}".format(sys.argv[1]))
+    c = dg.conn.Conn(user="ftian", database=sys.argv[1], port=5555) 
     vh = xt_vmstat_hosts(c)
     print(vh.sql)
     print(vh.show())

@@ -97,7 +97,7 @@ $PHI$), t.* from (select 1::int4) t) tmpcsvt
 
 if __name__ == '__main__':
     import dg.conn
-    c = dg.conn.Conn("host=localhost dbname=ftian")
+    c = dg.conn.Conn("ftian", port=5555) 
  
     csv = CsvXt('http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data') 
     csv.add_col('sepal_length', 'float')

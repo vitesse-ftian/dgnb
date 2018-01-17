@@ -16,7 +16,7 @@ def xt_waiting(conn):
     
 if __name__ == '__main__':
     import sys
-    c = dg.conn.Conn("host=localhost dbname={0}".format(sys.argv[1]))
+    c = dg.conn.Conn("ftian", port=5555, database=sys.argv[1]) 
     xt = xt_activity(c) 
     print(xt.show())
 

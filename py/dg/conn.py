@@ -1,8 +1,9 @@
-import psycopg2
+# import psycopg2
+import pg8000
 
 class Conn:
-    def __init__(self, connstr):
-        self.conn = psycopg2.connect(connstr)
+    def __init__(self, user=None, host='localhost', port=5432, database=None, password=None):
+        self.conn = pg8000.connect(user, host=host, port=port, database=database, password=password) 
         self.setversion()
         self.nexttmp = 0
     
@@ -54,6 +55,6 @@ class Conn:
 
 
 if __name__ == '__main__':
-    conn = Conn("host=localhost user=ftian dbname=ftian")
+    conn = Conn("ftian") 
     print("Connected to deepgreen database, version is ", conn.ver)
 

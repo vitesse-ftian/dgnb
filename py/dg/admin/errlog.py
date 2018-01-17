@@ -18,7 +18,7 @@ def xt_errlog(conn, lv="ERROR+", limit=None):
     return dg.xtable.fromQuery(conn, sql)
     
 if __name__ == '__main__':
-    c = dg.conn.Conn("host=localhost")
+    c = dg.conn.Conn("ftian", port=5555) 
     xt = xt_errlog(c, limit = 10)
     print(xt.show())
 
