@@ -3,10 +3,11 @@ import dg.xtable
 from dg.xtable import XCol
 
 class CsvXt: 
-    def __init__(self, url, delim=','):
+    def __init__(self, url, delim=',', strip=True):
         self.url = url
         self.schema = []
         self.delim = delim
+        self.strip = strip
 
     def add_col(self, name, typ):
         self.schema.append(XCol(name, typ)) 
@@ -72,9 +73,15 @@ if __name__ == '__main__':
             outrec.append(float(fff)) 
 """.format(idx)
             else:
-                sql += """
+                if self.strip:
+                    sql += """
+        outrec.append(row[{0}].strip())
+""".format(idx)
+                else:
+                    sql += """
         outrec.append(row[{0}])
 """.format(idx)
+
         
         sql += """
         vitessedata.phi.WriteOutput(outrec)
@@ -88,13 +95,6 @@ $PHI$), t.* from (select 1::int4) t) tmpcsvt
         sql = self.xtable_sql()
         return dg.xtable.fromQuery(conn, sql)
 
-    def ctas(self, conn, tablename, distributed_by=None):
-        xt = self.xtable(conn)
-        sql = "create table {0} as {1}".format(tablename, xt.sql) 
-        if distributed_by != None:
-            sql += " distributed by ({0})".format(distributed_by)
-        conn.execute_only(sql)
-
 if __name__ == '__main__':
     import dg.conn
     c = dg.conn.Conn("ftian", port=5555) 
@@ -106,6 +106,5 @@ if __name__ == '__main__':
     csv.add_col('petal_width', 'float') 
     csv.add_col('iris_class', 'text')
 
-    # print(csv.xtable_sql())
     xt = csv.xtable(c)
     print(xt.show())

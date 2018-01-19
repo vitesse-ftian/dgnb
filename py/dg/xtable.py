@@ -9,17 +9,21 @@ class XCol:
             return ("int4", "int32")
         elif self.type in ["int8", "bigint"]:
             return ("int8", "int64")
-        elif self.type in ["float", "float4"]:
+        elif self.type in ["real", "float4"]:
             return ("float4", "float32")
-        elif self.type in ["double precision", "float8"]:
+        elif self.type in ["float", "double precision", "float8"]:
             return ("float8", "float64")
         else:
             return ("text", "string")
+    def pg_type(self):
+        return self.pg_tr_type()[0]
+    def tr_type(self):
+        return self.pg_tr_type()[1]
 
 class XTable:
-    def __init__(self, c, sql="", alias="", inputs=None):
+    def __init__(self, c, origsql="", alias="", inputs=None):
         self.conn = c
-        self.origsql = sql
+        self.origsql = origsql
         self.sql = None 
         if alias == "":
             self.alias = c.next_tmpname()
@@ -160,6 +164,22 @@ class XTable:
         self.build_sql()
         return self.conn.execute(self.sql) 
 
+    def ctas(self, tablename, distributed_by=None):
+        sql = "create table {0} as {1}".format(tablename, self.sql) 
+        if distributed_by != None:
+            sql += " distributed by ({0})".format(distributed_by)
+        self.conn.execute_only(sql)
+
+    def insert_into(self, tablename, cols=None):
+        sql = "insert into {0} ".format(tablename)
+        if cols != None:
+            sep = '('
+            for col in cols:
+                sql += sep + col
+            sql += ')'
+        sql += self.sql
+        self.conn.execute_only(sql)
+
     def coldata(self, colname, rows):
         for idx, col in enumerate(self.schema):
             if col.name == colname:
@@ -170,15 +190,20 @@ class XTable:
         res = self.execute()
         return tabulate.tabulate(res, [col.name for col in self.schema], tablefmt)
 
-def fromTable(conn, tn, alias=""):
-    xt = XTable(conn, "select * from " + tn, alias, None)
-    xt.explain()
-    return xt
 
 def fromQuery(conn, qry, alias="", inputs=None):
     xt = XTable(conn, qry, alias, inputs)
     xt.explain()
     return xt
+
+def fromSQL(conn, sql, alias=""):
+    xt = XTable(conn, sql, alias, None) 
+    xt.sql = xt.origsql
+    xt.explain()
+    return xt
+
+def fromTable(conn, tn, alias=""):
+    return fromSQL(conn, "select * from " + tn, alias)
 
 def sameData(xt1, xt2):
     st1 = fromQuery(xt1.conn, "select dg_utils.sha1_checksum(byteain(record_out(#0#.*))) from #0#", inputs = [xt1])
@@ -189,8 +214,8 @@ def sameData(xt1, xt2):
 
 if __name__ == '__main__':
     import dg.conn
-    c1 = dg.conn.Conn("ftian", port=5555, database="ftian") 
-    c2 = dg.conn.Conn("ftian", port=5555, database="tpch1f") 
+    c1 = dg.conn.Conn("ftian", database="ftian") 
+    c2 = dg.conn.Conn("ftian", database="tpch1f") 
     t1 = fromTable(c1, "dg_utils.eachseg")
     t2 = fromTable(c2, "dg_utils.eachseg")
     t3 = fromTable(c1, "t")
@@ -207,3 +232,8 @@ if __name__ == '__main__':
     rows = t4.execute()
     print(t4.coldata('n_comment', rows))
 
+    tu = fromQuery(c1, """select 'num_train', count(*) from widedeep_train 
+                          union all
+                          select 'num_test', count(*) from widedeep_test
+                          """)
+    print(tu.show())
