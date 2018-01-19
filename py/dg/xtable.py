@@ -160,6 +160,22 @@ class XTable:
         self.build_sql()
         return self.conn.execute(self.sql) 
 
+    def ctas(self, tablename, distributed_by=None):
+        sql = "create table {0} as {1}".format(tablename, self.sql) 
+        if distributed_by != None:
+            sql += " distributed by ({0})".format(distributed_by)
+        self.conn.execute_only(sql)
+
+    def insert_into(self, tablename, cols=None):
+        sql = "insert into {0} ".format(tablename)
+        if cols != None:
+            sep = '('
+            for col in cols:
+                sql += sep + col
+            sql += ')'
+        sql += self.sql
+        self.conn.execute_only(sql)
+
     def coldata(self, colname, rows):
         for idx, col in enumerate(self.schema):
             if col.name == colname:
@@ -169,6 +185,7 @@ class XTable:
     def show(self, tablefmt='psql'):
         res = self.execute()
         return tabulate.tabulate(res, [col.name for col in self.schema], tablefmt)
+
 
 def fromTable(conn, tn, alias=""):
     xt = XTable(conn, "select * from " + tn, alias, None)

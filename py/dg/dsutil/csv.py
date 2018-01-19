@@ -88,13 +88,6 @@ $PHI$), t.* from (select 1::int4) t) tmpcsvt
         sql = self.xtable_sql()
         return dg.xtable.fromQuery(conn, sql)
 
-    def ctas(self, conn, tablename, distributed_by=None):
-        xt = self.xtable(conn)
-        sql = "create table {0} as {1}".format(tablename, xt.sql) 
-        if distributed_by != None:
-            sql += " distributed by ({0})".format(distributed_by)
-        conn.execute_only(sql)
-
 if __name__ == '__main__':
     import dg.conn
     c = dg.conn.Conn("ftian", port=5555) 
@@ -106,6 +99,5 @@ if __name__ == '__main__':
     csv.add_col('petal_width', 'float') 
     csv.add_col('iris_class', 'text')
 
-    # print(csv.xtable_sql())
     xt = csv.xtable(c)
     print(xt.show())
