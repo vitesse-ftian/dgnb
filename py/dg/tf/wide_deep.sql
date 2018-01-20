@@ -1,9 +1,6 @@
 -- explain
--- WITH aaaa as (select 0::int as ii, 0::float4 as rr, wt.* from widedeep_train wt limit 100000000000),
---     bbbb as (select 1::int as ii, 0::float4 as rr, wt.* from widedeep_test wt limit 100000000000) 
-     
-WITH aaaa as (select 0::int as ii, 0::float4 as rr, wt.* from widedeep_train wt limit 1000),
-     bbbb as (select 1::int as ii, 0::float4 as rr, wt.* from widedeep_test wt limit 100) 
+WITH aaaa as (select 0::int as ii, 0::float4 as rr, wt.* from widedeep_train wt limit 100000000000),
+     bbbb as (select 1::int as ii, 0::float4 as rr, wt.* from widedeep_test wt limit 100000000000) 
 select 
 dg_utils.transducer_column_int4(1) as nth,
 dg_utils.transducer_column_float4(2) as accuracy,

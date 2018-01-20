@@ -3,10 +3,11 @@ import dg.xtable
 from dg.xtable import XCol
 
 class CsvXt: 
-    def __init__(self, url, delim=','):
+    def __init__(self, url, delim=',', strip=True):
         self.url = url
         self.schema = []
         self.delim = delim
+        self.strip = strip
 
     def add_col(self, name, typ):
         self.schema.append(XCol(name, typ)) 
@@ -72,9 +73,15 @@ if __name__ == '__main__':
             outrec.append(float(fff)) 
 """.format(idx)
             else:
-                sql += """
+                if self.strip:
+                    sql += """
+        outrec.append(row[{0}].strip())
+""".format(idx)
+                else:
+                    sql += """
         outrec.append(row[{0}])
 """.format(idx)
+
         
         sql += """
         vitessedata.phi.WriteOutput(outrec)
