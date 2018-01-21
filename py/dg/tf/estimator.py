@@ -1,93 +1,125 @@
 import dg.xtable
+import dg.tf.input_fn
 
-class Feature
-    def __init__(self, name):
-        self.name = name
-        self.indent = '    ' 
-    def child(self, c):
-        if type(c) is str:
-            return "'{0}'".format(c)
+class Estimator:
+    def __init__(self, extract_label, batch_sz=100):
+        self.extract_label = extract_label
+        self.batch_sz = batch_sz
+        self.tfinput = dg.tf.input_fn.InputFn()
+        self.out_cols = []
+
+    def add_out_col(self, name, typ):
+        self.out_cols.append(dg.xtable.XCol(n, t))
+
+    def add_tf_code(self, tfcode): 
+        self.tfcode = tfcode
+
+    def tr_out_cols(self):
+        s = ""
+        for idx, col in enumerate(self.out_cols):
+            pgt, trt = col.pg_tr_type()
+            s += "dg_utils.transducer_column_{0}({1}) as {2},\n".format(pgt, idx+1, col.name)
+        return s
+
+    def build_tr_in_types(self):
+
+    def build_xt(self, conn):
+        sql = self.build_xtsql()
+        return dg.xtable.fromSQL(conn, sql)
+
+    def build_xtsql(self):
+        sql = """ select {0} 
+dg_utils.transducer($PHI$PhiExec python2
+import vitessedata.phi
+vitessedata.phi.DeclareTypes('''
+//
+{1}
+//
+{2}
+//
+''')
+import shutil
+import sys
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
+import tensorflow as tf
+
+class TfPhiReader:
+    def __init__(self):
+        self.tf_aux_ii = 0
+        self.nextrow = None
+
+    def next(self, ii): 
+        if self.tf_aux_ii == ii:
+            if self.nextrow != None:
+                ret = self.nextrow
+                self.nextrow = None
+                return ret[2:]
+            else:
+                rec = vitessedata.phi.NextInput()
+                if rec == None:
+                    return None
+                if rec[0] != ii:
+                    self.tf_aux_ii = rec[0]
+                    self.nextrow = rec
+                    return None
+                else:
+                    return rec[2:]
         else:
-            return c.name
+            if self.nextrow != None:
+                return None
+            else:
+                rec = vitessedata.phi.NextInput()
+                if rec == None:
+                    return None
+                if rec[0] == ii:
+                    self.tf_aux_ii = rec[0]
+                    if rec[0] == ii:
+                        return rec[2:]
+                    else:
+                        self.nextrow = rec
+                        return None
+            
+tf_phi_reader = TfPhiReader()
 
-class NumericColumn(Feature):
-    def __init__(self, name):
-        Feature.__init__(self, name)
-    def gencode(self):
-        return '''{0}{1} = tf.feature_column.numeric_column('{1}')\n'''.format(self.indent, self.name)
+def phi_generator(ii):
+    cnt = 0
+    rec = tf_phi_reader.next(ii)
+    while rec != None:
+        cnt += 1
+        yield tuple(rec)
+        rec = tf_phi_reader.next(ii)
 
-class CategoricalColumn(Feature):
-    def __init__(self, name, vals=None, hash_bucket_size=None):
-        Feature.__init__(self, name)
-        self.vals = vals
-        self.hash_bucket_size = hash_bucket_size 
-    def gencode(self):
-        if self.vals == None:
-            return '''{0}{1} = tf.feature_column.categorical_column_with_hash_bucket('{1}', hash_bucket_size={2})\n'''.format(self.indent, self.name, self.hash_bucket_size)
-        else:
-            return '''{0}{1} = tf.feature_column.categorical_column_with_vocabulary_list('{1}', {2})\n'''.format(self.indent, self.name, str(self.vals))
+def sql_input_fn(ii): 
+    ds = tf.data.Dataset.from_generator(lambda: phi_generator(ii), 
+            ({3}),
+            ({4}))
+    ds = ds.batch({5}) 
+    cols = ds.make_one_shot_iterator().get_next()
+    features = dict(zip({6}, cols)) 
+    return features
 
-class BucketizedColumn(Feature):
-    def __init__(self, name, f, boundaries):
-        Feature.__init__(self, name)
-        self.f = f
-        self.boundaries = boundaries
-    def gencode(self):
-        return '''{0}{1} = tf.feature_column.bucketized_column({2}, boundaries={3})\n'''.format(self.indent, self.name, self.child(self.f), str(self.boundaries))
+{7}
 
-class CrossedColumn(Feature):
-    def __init__(self, name, fs, hash_bucket_size): 
-        Feature.__init__(self, name)
-        self.fs = fs
-        self.hash_bucket_size = hash_bucket_size 
-    def children(self):
-        return ", ".join([self.child(f) for f in self.fs])
-    def gencode(self):
-        return '''{0}{1} = tf.feature_column.crossed_column([{2}], hash_bucket_size={3})\n'''.format(self.indent, self.name, self.children(), self.hash_bucket_size)
+if __name__ == '__main__:
+    sys.stderr = open("/tmp/phi_py2_tf.log", "w")
+    tf.logging.set_verbosity(tf.logging.ERROR)
+    tf.app.run(main=main, None)
 
-class IndicatorColumn(Feature):
-    def __init__(self, name, f):
-        Feature.__init__(self, name)
-        self.f = f
-    def gencode(self):
-        return '''{0}{1} = tf.feature_column.indicator_column({2})\n'''.format(self.indent, self.name, self.child(self.f))
+$PHI$), phitft.* from (
+{8}
+) phitft
+""".format(self.tr_out_cols(),
+           self.build_tr_in_types(), 
+           self.build_tr_out_types(),
+           self.build_input_fn_types(),
+           self.build_input_fn_shapes(),
+           self.batch_sz,
+           self.build_input_fn_colnames(),
+           self.tfcode,
+           self.build_tr_sql())
+        return sql
 
-class EmbeddingColumn(Feature):
-    def __init__(self, name, f, dimension):
-        Feature.__init__(self, name)
-        self.f = f
-        self.dimension = dimension
-    def gencode(self):
-        return '''{0}{1} = tf.feature_column.embedding_column({2}, dimension={3})\n'''.format(self.indent, self.name, self.child(self.f), self.dimension)
 
-def numeric_column(name):
-    return NumericFeature(name)
 
-def categorical_column_with_vocabulary_list(name, vals):
-    return CategoricalFeature(name, vals=vals)
 
-def categorical_column_with_hash_bucket(name, hash_bucket_size) 
-    return CategoricalFeature(name, hash_bucket_size=hash_bucket_size) 
-
-def bucketized_column(name, f, boundaries):
-    return BucketizedColumn(name, f, boundaries)
-
-def crossed_column(name, fs, hash_bucket_size):
-    return CrossedColumn(name, fs, hash_bucket_size)
-
-def indicator_column(name, f):
-    return IndicatorColumn(name, f)
-
-def embedding_column(name, f, dimension):
-    return EmbeddingColumn(name, f, dimension)
-
-class LinearClassifier:
-    def __init__(self, model_dir, inputfn):
-        self.model_dir = model_dir
-        self.inputfn = inputfn
-        self.feature = []
-
-    def add_feature(self, f):
-        self.feature.append(f)
-
-    def xtable(self):

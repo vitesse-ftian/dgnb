@@ -17,9 +17,9 @@ class XCol:
             return ("text", "string")
 
 class XTable:
-    def __init__(self, c, sql="", alias="", inputs=None):
+    def __init__(self, c, origsql="", alias="", inputs=None):
         self.conn = c
-        self.origsql = sql
+        self.origsql = origsql
         self.sql = None 
         if alias == "":
             self.alias = c.next_tmpname()
@@ -194,6 +194,12 @@ def fromTable(conn, tn, alias=""):
 
 def fromQuery(conn, qry, alias="", inputs=None):
     xt = XTable(conn, qry, alias, inputs)
+    xt.explain()
+    return xt
+
+def fromSQL(conn, sql, alias=""):
+    xt = XTable(conn, qry, alias, inputs)
+    xt.sql = xt.origsql
     xt.explain()
     return xt
 

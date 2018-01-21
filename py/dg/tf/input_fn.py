@@ -1,7 +1,7 @@
 import dg.xtable
 
 class Xt: 
-    def __init__(self, xt, repeat=1, shuffle=False, gather=True): 
+    def __init__(self, xt, repeat, shuffle, gather): 
         self.xt = xt
         self.shuffle = shuffle
         self.gather = gather
@@ -23,12 +23,13 @@ class Xt:
                     "select {0}::int as __tf_aux_iter, 0.0::float4 as __tf_aux_rr, #0#.* from #0# {1}".format(itn, lg),
                     inputs = [self.xt])
 
-class TFInput: 
+class InputFn:
     def __init__(self):
         self.xts = []
 
-    def add_xt(self, xt):
-        self.xts.append(xt)
+    def add_xt(self, xt, repeat=1, shuffle=False, gather=True):
+        tfxt = Xt(xt, repeat=repeat, shuffle=shuffle, gather=gather)
+        self.xts.append(tfxt)
 
     def build_xt(self):
         if len(self.xts) == 0:

@@ -5,8 +5,6 @@ select
 dg_utils.transducer_column_int4(1) as nth,
 dg_utils.transducer_column_float4(2) as accuracy,
 dg_utils.transducer($PHI$PhiExec python2
-from __future__ import division
-
 import vitessedata.phi
 vitessedata.phi.DeclareTypes('''
 // 
