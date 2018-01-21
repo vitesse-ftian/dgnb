@@ -25,6 +25,7 @@ class Xt:
 
 class InputFn:
     def __init__(self):
+        self.phitft = None
         self.xts = []
 
     def add_xt(self, xt, repeat=1, shuffle=False, gather=True):
@@ -34,7 +35,9 @@ class InputFn:
     def build_xt(self):
         if len(self.xts) == 0:
             raise ValueError("Deepgreen TF Input need input xts.")
-    
+        if self.phitft != None:
+            return self.phitft
+
         sql = ""
         sep = ""
         inputs = []
@@ -46,4 +49,5 @@ class InputFn:
                 sep = " union all "
         sql += " limit 1000000000000000 "
 
-        return dg.xtable.fromQuery(self.xts[0].xt.conn, sql, inputs=inputs)
+        self.phitft = dg.xtable.fromQuery(self.xts[0].xt.conn, sql, inputs=inputs)
+        return self.phitft

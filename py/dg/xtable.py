@@ -15,6 +15,10 @@ class XCol:
             return ("float8", "float64")
         else:
             return ("text", "string")
+    def pg_type(self):
+        return self.pg_tr_type()[0]
+    def tr_type(self):
+        return self.pg_tr_type()[1]
 
 class XTable:
     def __init__(self, c, origsql="", alias="", inputs=None):

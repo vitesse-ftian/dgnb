@@ -22,6 +22,35 @@ class Estimator:
         return s
 
     def build_tr_in_types(self):
+        tft = self.tfinput.build_xt()
+        s = ""
+        for col in tft.schema:
+            pgt, trt = col.pg_tr_type()
+            s += "// {0} {1}\n".format(col.name, trt)
+        return s
+
+    def build_tr_out_types(self):
+        s = ""
+        for col in self.out_cols:
+            pgt, trt = col.pg_tr_type()
+            s += "// {0} {1}\n".format(col.name, trt)
+        return s
+
+    def build_input_fn_types(self):
+        tft = self.tfinput.build_xt()
+        return ",".join(["tr.{0}".format(col.tr_type()) for col in tft.schema])
+
+    def build_input_fn_shapes(self):
+        tft = self.tfinput.build_xt()
+        return ",".join(["[]" for col in tft.schema])
+
+    def build_input_fn_colnames(self):
+        tft = self.tfinput.build_xt()
+        return ",".join(['"{0}"'.format(col.name) for col in tft.schema])
+
+    def build_tr_sql(self):
+        tft = self.tfinput.build_xt()
+        return tft.sql
 
     def build_xt(self, conn):
         sql = self.build_xtsql()
@@ -96,7 +125,7 @@ def sql_input_fn(ii):
             ({4}))
     ds = ds.batch({5}) 
     cols = ds.make_one_shot_iterator().get_next()
-    features = dict(zip({6}, cols)) 
+    features = dict(zip([{6}], cols)) 
     return features
 
 {7}
