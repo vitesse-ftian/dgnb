@@ -2,23 +2,27 @@ import dg.conn
 import dg.xtable
 import dg.tf.estimator
 
+CONF_nround = 5 
 if __name__ == '__main__':
     conn = dg.conn.Conn("ftian") 
     est = dg.tf.estimator.Estimator(batch_sz=40)
-    est.add_out_col('nth', 'int')
-    est.add_out_col('accuracy', 'float4')
+    est.add_out_col('falseneg', 'int')
+    est.add_out_col('trueneg', 'int')
+    est.add_out_col('falsepos', 'int')
+    est.add_out_col('truepos', 'int')
+    est.add_out_col('accuracy', 'float')
 
     xt1 = dg.xtable.fromTable(conn, 'widedeep_train')
     xt2 = dg.xtable.fromTable(conn, 'widedeep_test')
 
-    for ii in range(20):
+    for ii in range(CONF_nround): 
         est.tfinput.add_xt(xt1, repeat=2, shuffle=True)
-        est.tfinput.add_xt(xt1) 
         est.tfinput.add_xt(xt2)
 
     tfcode = """
 import shutil
 
+CONF_nround = 5
 CONF_dir = '/tmp/census_model'
 CONF_rmdir = True
 CONF_model = 'wide_deep'   # can be wide, deep, wide_deep
@@ -117,10 +121,13 @@ def build_estimator(model_dir, model_type):
             dnn_hidden_units=hidden_units,
             config=run_config)
 
-def input_fn(ii):
-    features = sql_input_fn(ii)
+def input_fn(ii, cache_rs=False):
+    features = sql_input_fn(ii, cache_rs)
     labels = features.pop('income')
     return features, tf.equal(labels, '>50K')
+
+def array_input_fn(features):
+    return features.pop('income'), None
 
 def main(unused_args): 
     # Clean up the model directory if present
@@ -128,17 +135,41 @@ def main(unused_args):
         shutil.rmtree(CONF_dir, ignore_errors=True)
     model = build_estimator(CONF_dir, CONF_model)
 
-    for ii in range (20):
-        model.train(input_fn=lambda: input_fn(ii * 3))
-        result1 = model.evaluate(input_fn=lambda: input_fn(ii * 3 + 1))
-        sys.stderr.write("Round " + str(ii) + " accuracy: " + str(result1['accuracy']) + "\\n")
-        result2 = model.evaluate(input_fn=lambda: input_fn(ii * 3 + 2))
-        sys.stderr.write("Round " + str(ii) + " accuracy: " + str(result2['accuracy']) + "\\n")
-        vitessedata.phi.WriteOutput([ii, float(result2['accuracy'])])
+    for ii in range(CONF_nround): 
+        model.train(input_fn=lambda: input_fn(ii*2))
 
+        sql_clear_cached_rs()
+        predict_res = model.predict(input_fn=lambda: input_fn(ii*2+1, cache_rs=True)) 
+        predict_input = sql_cached_rs()
+        falseneg, trueneg, falsepos, truepos = 0, 0, 0, 0
+
+        idx = 0
+        for predict in predict_res:
+            data = predict_input[idx][-1]
+            res = predict['class_ids'][0]
+            idx += 1
+            if data == '>50K':
+                if res == 0:
+                    falseneg += 1
+                elif res == 1:
+                    truepos += 1
+                else:
+                    raise ValueError("Bad result >50K?  [" + data + "] classified as " + str(res))
+            elif data == '<=50K':
+                if res == 0:
+                    trueneg += 1
+                elif res == 1:
+                    falsepos += 1
+                else:
+                    raise ValueError("Bad result <=50K? [" + data + "] classified as " + str(res))
+            else:
+                raise ValueError("Bad result? [" + data + "] classified as " + str(res))
+
+        vitessedata.phi.WriteOutput([falseneg, trueneg, falsepos, truepos, 
+                        float(trueneg + truepos) / float(trueneg + truepos + falseneg + falsepos)]) 
     vitessedata.phi.WriteOutput(None)
-
 """
+
     est.add_tf_code(tfcode)
 
     estsql = est.build_sql()

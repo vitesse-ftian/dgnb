@@ -214,8 +214,8 @@ def sameData(xt1, xt2):
 
 if __name__ == '__main__':
     import dg.conn
-    c1 = dg.conn.Conn("ftian", port=5555, database="ftian") 
-    c2 = dg.conn.Conn("ftian", port=5555, database="tpch1f") 
+    c1 = dg.conn.Conn("ftian", database="ftian") 
+    c2 = dg.conn.Conn("ftian", database="tpch1f") 
     t1 = fromTable(c1, "dg_utils.eachseg")
     t2 = fromTable(c2, "dg_utils.eachseg")
     t3 = fromTable(c1, "t")
@@ -232,3 +232,8 @@ if __name__ == '__main__':
     rows = t4.execute()
     print(t4.coldata('n_comment', rows))
 
+    tu = fromQuery(c1, """select 'num_train', count(*) from widedeep_train 
+                          union all
+                          select 'num_test', count(*) from widedeep_test
+                          """)
+    print(tu.show())

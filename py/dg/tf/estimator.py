@@ -75,15 +75,21 @@ class TfPhiReader:
     def __init__(self):
         self.tf_aux_ii = 0
         self.nextrow = None
+        self.rowset = [] 
 
-    def next(self, ii): 
+    def clear_rs(self):
+        self.rowset = []
+
+    def next(self, ii, cache_rs): 
         if self.tf_aux_ii == ii:
             if self.nextrow != None:
                 sys.stderr.write("result set " + str(ii) + " read cached first row.\\n") 
                 sys.stderr.flush() 
-                ret = self.nextrow
+                rec = self.nextrow
                 self.nextrow = None
-                return ret[2:]
+                if cache_rs:
+                    self.rowset.append(rec[2:])
+                return rec[2:]
             else:
                 rec = vitessedata.phi.NextInput()
                 if rec == None:
@@ -97,6 +103,8 @@ class TfPhiReader:
                     self.nextrow = rec
                     return None
                 else:
+                    if cache_rs:
+                        self.rowset.append(rec[2:])
                     return rec[2:]
         else:
             sys.stderr.write("result set, try to read " + str(ii) + " tf_aux_ii is " + str(self.tf_aux_ii) + "\\n") 
@@ -114,6 +122,8 @@ class TfPhiReader:
                 if rec[0] == ii:
                     self.tf_aux_ii = rec[0]
                     if rec[0] == ii:
+                        if cache_rs:
+                            self.rowset.append(rec[2:])
                         return rec[2:]
                     else:
                         self.nextrow = rec
@@ -121,17 +131,23 @@ class TfPhiReader:
             
 tf_phi_reader = TfPhiReader()
 
-def phi_generator(ii):
+def sql_clear_cached_rs():
+    tf_phi_reader.clear_rs()
+
+def sql_cached_rs():
+    return tf_phi_reader.rowset
+
+def phi_generator(ii, cache_rs):
     cnt = 0
-    rec = tf_phi_reader.next(ii)
+    rec = tf_phi_reader.next(ii, cache_rs)
     while rec != None:
         cnt += 1
         yield tuple(rec)
-        rec = tf_phi_reader.next(ii)
+        rec = tf_phi_reader.next(ii, cache_rs)
     sys.stderr.write("Done reading resultset " + str(ii) + " total " + str(cnt) + " records\\n")
 
-def sql_input_fn(ii): 
-    ds = tf.data.Dataset.from_generator(lambda: phi_generator(ii), 
+def sql_input_fn(ii, cache_rs=False): 
+    ds = tf.data.Dataset.from_generator(lambda: phi_generator(ii, cache_rs), 
             ({3}),
             ({4}))
     ds = ds.batch({5}) 
