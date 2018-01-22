@@ -80,6 +80,7 @@ class TfPhiReader:
         if self.tf_aux_ii == ii:
             if self.nextrow != None:
                 sys.stderr.write("result set " + str(ii) + " read cached first row.\\n") 
+                sys.stderr.flush() 
                 ret = self.nextrow
                 self.nextrow = None
                 return ret[2:]
@@ -87,23 +88,28 @@ class TfPhiReader:
                 rec = vitessedata.phi.NextInput()
                 if rec == None:
                     sys.stderr.write("result set " + str(ii) + " read EOS\\n") 
+                    sys.stderr.flush() 
                     return None
                 if rec[0] != ii:
                     sys.stderr.write("resultset switch from " + str(ii) + " to " + str(rec[0]) + "\\n") 
+                    sys.stderr.flush() 
                     self.tf_aux_ii = rec[0]
                     self.nextrow = rec
                     return None
                 else:
                     return rec[2:]
         else:
-            sys.stderr.write("result set, try to read " + str(ii) + " tf_aux_ii is " + str(self.tr_aux_ii) + "\\n") 
+            sys.stderr.write("result set, try to read " + str(ii) + " tf_aux_ii is " + str(self.tf_aux_ii) + "\\n") 
+            sys.stderr.flush() 
             if self.nextrow != None:
-                sys.stderr.write("result set, try to read " + str(ii) + " tf_aux_ii is " + str(self.tr_aux_ii) + " cached mismatch\\n") 
+                sys.stderr.write("result set, try to read " + str(ii) + " tf_aux_ii is " + str(self.tf_aux_ii) + " cached mismatch\\n") 
+                sys.stderr.flush() 
                 return None
             else:
                 rec = vitessedata.phi.NextInput()
                 if rec == None:
-                    sys.stderr.write("result set " + str(ii) + " tf_aux_ii " + str(self.tr_aux_ii) + " read EOS\\n")
+                    sys.stderr.write("result set " + str(ii) + " tf_aux_ii " + str(self.tf_aux_ii) + " read EOS\\n")
+                    sys.stderr.flush() 
                     return None
                 if rec[0] == ii:
                     self.tf_aux_ii = rec[0]

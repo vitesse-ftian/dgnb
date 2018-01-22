@@ -4,7 +4,7 @@ import dg.tf.estimator
 
 if __name__ == '__main__':
     conn = dg.conn.Conn("ftian") 
-    est = dg.tf.estimator.Estimator()
+    est = dg.tf.estimator.Estimator(batch_sz=40)
     est.add_out_col('nth', 'int')
     est.add_out_col('accuracy', 'float4')
 
@@ -13,6 +13,7 @@ if __name__ == '__main__':
 
     for ii in range(20):
         est.tfinput.add_xt(xt1, repeat=2, shuffle=True)
+        est.tfinput.add_xt(xt1) 
         est.tfinput.add_xt(xt2)
 
     tfcode = """
@@ -128,9 +129,12 @@ def main(unused_args):
     model = build_estimator(CONF_dir, CONF_model)
 
     for ii in range (20):
-        model.train(input_fn=lambda: input_fn(ii * 2))
-        results = model.evaluate(input_fn=lambda: input_fn(ii * 2 + 1))
-        vitessedata.phi.WriteOutput([ii, float(results['accuracy'])])
+        model.train(input_fn=lambda: input_fn(ii * 3))
+        result1 = model.evaluate(input_fn=lambda: input_fn(ii * 3 + 1))
+        sys.stderr.write("Round " + str(ii) + " accuracy: " + str(result1['accuracy']) + "\\n")
+        result2 = model.evaluate(input_fn=lambda: input_fn(ii * 3 + 2))
+        sys.stderr.write("Round " + str(ii) + " accuracy: " + str(result2['accuracy']) + "\\n")
+        vitessedata.phi.WriteOutput([ii, float(result2['accuracy'])])
 
     vitessedata.phi.WriteOutput(None)
 
