@@ -6,6 +6,8 @@ class Conn:
         self.conn = pg8000.connect(user, host=host, port=port, database=database, password=password) 
         self.setversion()
         self.nexttmp = 0
+        # autocommit set to true by default.
+        self.conn.autocommit = True
     
     def setversion(self):
         cur = self.conn.cursor()
