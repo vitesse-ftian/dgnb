@@ -1,0 +1,11 @@
+[xdrive]
+dir = "/home/ftian/oss/dgnb/ml/xdrive" 
+pluginpath = ["/home/ftian/oss/dgnb/ml/xdrive/plugin"] 
+
+port=31416
+host = [  "localhost"  ]
+
+[[xdrive.mount]]
+name = "images" 
+argv = ["dgtools/ls_file", "/home/ftian/oss/dgnb/ml/xdrive/images"] 
+

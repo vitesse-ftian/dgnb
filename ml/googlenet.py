@@ -14,7 +14,7 @@ import xfdnn.rt.xdnn_io as pyxfdnn_io
 import xdrive_pb2, server
 
 fpga_lock = threading.RLock()
-mlsuite = "/home/nimbix/oss/ml-suite"
+mlsuite = "/home/ftian/oss/ml-suite"
 config = {}
 
 g_imgc = 3
@@ -217,7 +217,7 @@ if __name__=='__main__':
             col = xmsg.rowset.columns.add()
             col.nrow = 1
             col.nullmap.append(False)
-            col.sdata.append("/data/ftian/xdrive/images/" + imgs[ii]) 
+            col.sdata.append("./xdrive/images/food/" + imgs[ii]) 
 
             server.writeXMsg(sock, xmsg)
             ret = server.readXMsg(sock)
