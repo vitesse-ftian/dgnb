@@ -1,0 +1,1015 @@
+{
+    "cmd": "/home/ftian/anaconda2/envs/ml-suite/lib/python2.7/site-packages/ipykernel_launcher.py -f /run/user/1000/jupyter/kernel-30a19504-f763-4ebd-87c3-03c1f57049f3.json", 
+    "env": "{'GOPATH': '/home/ftian/go', 'CONDA_PYTHON_EXE': '/home/ftian/anaconda2/bin/python', 'GOROOT': '/home/ftian/p/toolchain/go', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'SSH_CLIENT': '192.168.0.162 38044 22', 'LOGNAME': 'ftian', 'USER': 'ftian', 'SDACCEL_INI_PATH': '/home/ftian/oss/ml-suite/overlaybins', 'HOME': '/home/ftian', 'MLSUITE_ROOT': '/home/ftian/oss/ml-suite', 'PATH': '/home/ftian/anaconda2/envs/ml-suite/bin:/home/ftian/anaconda2/envs/ml-suite/bin:/home/ftian/anaconda2/bin:/home/ftian/bin:/home/ftian/.local/bin:/home/ftian/bin:/home/ftian/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ftian/p/toolchain/go/bin:/home/ftian/go/bin:/home/ftian/p/toolchain/go/bin:/home/ftian/go/bin', 'LD_LIBRARY_PATH': '/home/ftian/oss/ml-suite/overlaybins/1525/runtime/lib/x86_64/:/home/ftian/oss/ml-suite/xfdnn/rt/xdnn_cpp/build/lib:/home/ftian/oss/ml-suite/xfdnn/rt/lib:/home/ftian/oss/ml-suite/ext/boost/lib:/home/ftian/oss/ml-suite/ext/zmq/libs:/home/ftian/oss/ml-suite', 'LANG': 'en_US.UTF-8', 'TERM': 'xterm-color', 'SHELL': '/bin/bash', 'SHLVL': '2', 'QT_QPA_PLATFORMTHEME': 'appmenu-qt5', 'CONDA_PREFIX': '/home/ftian/anaconda2/envs/ml-suite', 'CONDA_DEFAULT_ENV': 'ml-suite', 'TOOLCHAIN_DIR': '/home/ftian/p/toolchain', 'MKL_NUM_THREADS': '4', 'MPLBACKEND': 'module://ipykernel.pylab.backend_inline', 'XDG_RUNTIME_DIR': '/run/user/1000', 'JPY_PARENT_PID': '24008', 'PYTHONPATH': '/home/ftian/oss/ml-suite:/home/ftian/oss/ml-suite/apps/yolo:/home/ftian/oss/ml-suite/apps/yolo/nms:/home/ftian/oss/ml-suite/xfdnn/rt:/home/ftian/oss/ml-suite/xfdnn/tools/emu:/home/ftian/oss/ml-suite/xfdnn/tools/compile/network:/home/ftian/oss/ml-suite/xfdnn/tools/compile/graph:/home/ftian/oss/ml-suite/xfdnn/tools/compile/optimizations:/home/ftian/oss/ml-suite/xfdnn/tools/compile/codegeneration:/home/ftian/oss/ml-suite/xfdnn/tools/compile/memory:/home/ftian/oss/ml-suite/xfdnn/tools/compile/version:/home/ftian/oss/ml-suite/xfdnn/tools/compile/memory:/home/ftian/oss/ml-suite/xfdnn/tools/compile/weights:/home/ftian/oss/ml-suite/xfdnn/tools/compile/bin:/home/ftian/oss/ml-suite/gemx/python', 'EVENT_NOEPOLL': '1', 'TMUX': '/tmp/tmux-1000/default,23628,2', 'CONDA_PROMPT_MODIFIER': '(ml-suite) ', 'GIT_PAGER': 'cat', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'CONDA_SHLVL': '1', 'XDG_SESSION_ID': '115', '_': '/home/ftian/anaconda2/envs/ml-suite/bin/jupyter', 'XCLBIN_PATH': '/home/ftian/oss/ml-suite/overlaybins/1525', 'SSH_CONNECTION': '192.168.0.162 38060 192.168.0.161 22', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LIBXDNN_PATH': '/home/ftian/oss/ml-suite/xfdnn/rt/xdnn_cpp/lib/libxfdnn.so', 'OMP_NUM_THREADS': '4', 'SSH_TTY': '/dev/pts/2', 'OLDPWD': '/home/ftian', 'LGOPATH': '/home/ftian/oss/lgo', 'CLICOLOR': '1', 'XILINX_OPENCL': '/home/ftian/oss/ml-suite/overlaybins/1525', 'PWD': '/home/ftian/oss/ml-suite', 'MAIL': '/var/mail/ftian', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'PAGER': 'cat', 'TMUX_PANE': '%3'}", 
+    "first_layer": 0, 
+    "last_layer": 140, 
+    "moveops": 0, 
+    "network": [
+        {
+            "layer": "data: type=Input, sizes=None, shapes=None, sched 0 Kernel None Strides None Padding None  NO VALID CODE  ", 
+            "name": "data", 
+            "ops": 0, 
+            "schedule": 1, 
+            "xdnn_instr": "# # LAYER data [u'Input'] ['layer']"
+        }, 
+        {
+            "layer": "conv1/7x7_s2: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=3, height=7, width=7), sched 1 Kernel [7L] Strides [2L] Padding [3L]", 
+            "name": "conv1/7x7_s2", 
+            "ops": 236027904, 
+            "schedule": 2, 
+            "xdnn_instr": "2 XNConv conv1/7x7_s2 7 7 2 2 3 3 1 1 16 26 2 1 1 0x0 224 224 3 0x70000 112 112 64 0"
+        }, 
+        {
+            "layer": "conv1/relu_7x7: type=ReLU, sizes=None, shapes=[0], sched 2 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "conv1/relu_7x7", 
+            "ops": 0, 
+            "schedule": 3, 
+            "xdnn_instr": "# LAYER \"conv1/relu_7x7\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "pool1/3x3_s2: type=Pooling, sizes=None, shapes=None, sched 3 Kernel [3] Strides [2] Padding [0]", 
+            "name": "pool1/3x3_s2", 
+            "ops": 1806336, 
+            "schedule": 4, 
+            "xdnn_instr": "4 XNMaxPool pool1/3x3_s2 3 3 2 2 0 0 0x70000 112 112 64 0x0 56 56 0"
+        }, 
+        {
+            "layer": "conv2/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=64, height=1, width=1), sched 4 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "conv2/3x3_reduce", 
+            "ops": 25690112, 
+            "schedule": 5, 
+            "xdnn_instr": "5 XNConv conv2/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 56 56 64 0x70000 56 56 64 0"
+        }, 
+        {
+            "layer": "conv2/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 5 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "conv2/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 6, 
+            "xdnn_instr": "# LAYER \"conv2/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "conv2/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=192, channels=64, height=3, width=3), sched 6 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "conv2/3x3", 
+            "ops": 693633024, 
+            "schedule": 7, 
+            "xdnn_instr": "7 XNConv conv2/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x70000 56 56 64 0xe0000 56 56 192 0"
+        }, 
+        {
+            "layer": "conv2/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 7 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "conv2/relu_3x3", 
+            "ops": 0, 
+            "schedule": 8, 
+            "xdnn_instr": "# LAYER \"conv2/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "pool2/3x3_s2: type=Pooling, sizes=None, shapes=None, sched 8 Kernel [3] Strides [2] Padding [0]", 
+            "name": "pool2/3x3_s2", 
+            "ops": 1354752, 
+            "schedule": 9, 
+            "xdnn_instr": "9 XNMaxPool pool2/3x3_s2 3 3 2 2 0 0 0xe0000 56 56 192 0x0 28 28 0"
+        }, 
+        {
+            "layer": "inception_3a/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=192, height=1, width=1), sched 9 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_3a/1x1", 
+            "ops": 19267584, 
+            "schedule": 10, 
+            "xdnn_instr": "10 XNConv inception_3a/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 28 28 192 0xa8000 28 28 64 0"
+        }, 
+        {
+            "layer": "inception_3a/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 10 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3a/relu_1x1", 
+            "ops": 0, 
+            "schedule": 11, 
+            "xdnn_instr": "# LAYER \"inception_3a/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3a/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=96, channels=192, height=1, width=1), sched 11 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_3a/3x3_reduce", 
+            "ops": 28901376, 
+            "schedule": 12, 
+            "xdnn_instr": "12 XNConv inception_3a/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 28 28 192 0x188000 28 28 96 0"
+        }, 
+        {
+            "layer": "inception_3a/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 12 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3a/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 13, 
+            "xdnn_instr": "# LAYER \"inception_3a/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3a/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=96, height=3, width=3), sched 13 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_3a/3x3", 
+            "ops": 173408256, 
+            "schedule": 14, 
+            "xdnn_instr": "14 XNConv inception_3a/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x188000 28 28 96 0xe0000 28 28 128 0"
+        }, 
+        {
+            "layer": "inception_3a/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 14 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3a/relu_3x3", 
+            "ops": 0, 
+            "schedule": 15, 
+            "xdnn_instr": "# LAYER \"inception_3a/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3a/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=16, channels=192, height=1, width=1), sched 15 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_3a/5x5_reduce", 
+            "ops": 4816896, 
+            "schedule": 16, 
+            "xdnn_instr": "16 XNConv inception_3a/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 28 28 192 0x188000 28 28 16 0"
+        }, 
+        {
+            "layer": "inception_3a/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 16 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3a/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 17, 
+            "xdnn_instr": "# LAYER \"inception_3a/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3a/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=32, channels=16, height=5, width=5), sched 17 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_3a/5x5", 
+            "ops": 20070400, 
+            "schedule": 18, 
+            "xdnn_instr": "18 XNConv inception_3a/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x188000 28 28 16 0x150000 28 28 32 0"
+        }, 
+        {
+            "layer": "inception_3a/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 18 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3a/relu_5x5", 
+            "ops": 0, 
+            "schedule": 19, 
+            "xdnn_instr": "# LAYER \"inception_3a/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3a/pool: type=Pooling, sizes=None, shapes=None, sched 19 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_3a/pool", 
+            "ops": 1354752, 
+            "schedule": 20, 
+            "xdnn_instr": "20 XNMaxPool inception_3a/pool 3 3 1 1 1 1 0x0 28 28 192 0x188000 28 28 0"
+        }, 
+        {
+            "layer": "inception_3a/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=32, channels=192, height=1, width=1), sched 20 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_3a/pool_proj", 
+            "ops": 9633792, 
+            "schedule": 21, 
+            "xdnn_instr": "21 XNConv inception_3a/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x188000 28 28 192 0x16c000 28 28 32 0"
+        }, 
+        {
+            "layer": "inception_3a/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 21 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3a/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 22, 
+            "xdnn_instr": "# LAYER \"inception_3a/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3a/output: type=Concat, sizes=None, shapes=None, sched 22 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3a/output", 
+            "ops": 0, 
+            "schedule": 23, 
+            "xdnn_instr": "# 23 XNConcat inception_3a/output  0xa8000 0x188000 917504 "
+        }, 
+        {
+            "layer": "inception_3b/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=256, height=1, width=1), sched 23 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_3b/1x1", 
+            "ops": 51380224, 
+            "schedule": 24, 
+            "xdnn_instr": "24 XNConv inception_3b/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0xa8000 28 28 256 0x188000 28 28 128 0"
+        }, 
+        {
+            "layer": "inception_3b/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 24 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3b/relu_1x1", 
+            "ops": 0, 
+            "schedule": 25, 
+            "xdnn_instr": "# LAYER \"inception_3b/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3b/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=256, height=1, width=1), sched 25 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_3b/3x3_reduce", 
+            "ops": 51380224, 
+            "schedule": 26, 
+            "xdnn_instr": "26 XNConv inception_3b/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xa8000 28 28 256 0x0 28 28 128 0"
+        }, 
+        {
+            "layer": "inception_3b/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 26 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3b/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 27, 
+            "xdnn_instr": "# LAYER \"inception_3b/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3b/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=192, channels=128, height=3, width=3), sched 27 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_3b/3x3", 
+            "ops": 346816512, 
+            "schedule": 28, 
+            "xdnn_instr": "28 XNConv inception_3b/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x0 28 28 128 0x1f8000 28 28 192 0"
+        }, 
+        {
+            "layer": "inception_3b/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 28 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3b/relu_3x3", 
+            "ops": 0, 
+            "schedule": 29, 
+            "xdnn_instr": "# LAYER \"inception_3b/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3b/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=32, channels=256, height=1, width=1), sched 29 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_3b/5x5_reduce", 
+            "ops": 12845056, 
+            "schedule": 30, 
+            "xdnn_instr": "30 XNConv inception_3b/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xa8000 28 28 256 0x0 28 28 32 0"
+        }, 
+        {
+            "layer": "inception_3b/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 30 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3b/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 31, 
+            "xdnn_instr": "# LAYER \"inception_3b/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3b/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=96, channels=32, height=5, width=5), sched 31 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_3b/5x5", 
+            "ops": 120422400, 
+            "schedule": 32, 
+            "xdnn_instr": "32 XNConv inception_3b/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x0 28 28 32 0x2a0000 28 28 96 0"
+        }, 
+        {
+            "layer": "inception_3b/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 32 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3b/relu_5x5", 
+            "ops": 0, 
+            "schedule": 33, 
+            "xdnn_instr": "# LAYER \"inception_3b/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3b/pool: type=Pooling, sizes=None, shapes=None, sched 33 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_3b/pool", 
+            "ops": 1806336, 
+            "schedule": 34, 
+            "xdnn_instr": "34 XNMaxPool inception_3b/pool 3 3 1 1 1 1 0xa8000 28 28 256 0x32c000 28 28 0"
+        }, 
+        {
+            "layer": "inception_3b/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=256, height=1, width=1), sched 34 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_3b/pool_proj", 
+            "ops": 25690112, 
+            "schedule": 35, 
+            "xdnn_instr": "35 XNConv inception_3b/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x32c000 28 28 256 0x2f4000 28 28 64 0"
+        }, 
+        {
+            "layer": "inception_3b/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 35 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3b/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 36, 
+            "xdnn_instr": "# LAYER \"inception_3b/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_3b/output: type=Concat, sizes=None, shapes=None, sched 36 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_3b/output", 
+            "ops": 0, 
+            "schedule": 37, 
+            "xdnn_instr": "# 37 XNConcat inception_3b/output  0x188000 0x32c000 1720320 "
+        }, 
+        {
+            "layer": "pool3/3x3_s2: type=Pooling, sizes=None, shapes=None, sched 37 Kernel [3] Strides [2] Padding [0]", 
+            "name": "pool3/3x3_s2", 
+            "ops": 846720, 
+            "schedule": 38, 
+            "xdnn_instr": "38 XNMaxPool pool3/3x3_s2 3 3 2 2 0 0 0x188000 28 28 480 0x0 14 14 0"
+        }, 
+        {
+            "layer": "inception_4a/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=192, channels=480, height=1, width=1), sched 38 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4a/1x1", 
+            "ops": 36126720, 
+            "schedule": 39, 
+            "xdnn_instr": "39 XNConv inception_4a/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 480 0xd2000 14 14 192 0"
+        }, 
+        {
+            "layer": "inception_4a/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 39 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4a/relu_1x1", 
+            "ops": 0, 
+            "schedule": 40, 
+            "xdnn_instr": "# LAYER \"inception_4a/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4a/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=96, channels=480, height=1, width=1), sched 40 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4a/3x3_reduce", 
+            "ops": 18063360, 
+            "schedule": 41, 
+            "xdnn_instr": "41 XNConv inception_4a/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 480 0x1b2000 14 14 96 0"
+        }, 
+        {
+            "layer": "inception_4a/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 41 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4a/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 42, 
+            "xdnn_instr": "# LAYER \"inception_4a/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4a/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=208, channels=96, height=3, width=3), sched 42 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_4a/3x3", 
+            "ops": 70447104, 
+            "schedule": 43, 
+            "xdnn_instr": "43 XNConv inception_4a/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x1b2000 14 14 96 0x126000 14 14 208 0"
+        }, 
+        {
+            "layer": "inception_4a/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 43 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4a/relu_3x3", 
+            "ops": 0, 
+            "schedule": 44, 
+            "xdnn_instr": "# LAYER \"inception_4a/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4a/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=16, channels=480, height=1, width=1), sched 44 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4a/5x5_reduce", 
+            "ops": 3010560, 
+            "schedule": 45, 
+            "xdnn_instr": "45 XNConv inception_4a/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 480 0x1b2000 14 14 16 0"
+        }, 
+        {
+            "layer": "inception_4a/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 45 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4a/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 46, 
+            "xdnn_instr": "# LAYER \"inception_4a/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4a/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=48, channels=16, height=5, width=5), sched 46 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_4a/5x5", 
+            "ops": 7526400, 
+            "schedule": 47, 
+            "xdnn_instr": "47 XNConv inception_4a/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x1b2000 14 14 16 0x181000 14 14 48 0"
+        }, 
+        {
+            "layer": "inception_4a/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 47 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4a/relu_5x5", 
+            "ops": 0, 
+            "schedule": 48, 
+            "xdnn_instr": "# LAYER \"inception_4a/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4a/pool: type=Pooling, sizes=None, shapes=None, sched 48 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_4a/pool", 
+            "ops": 846720, 
+            "schedule": 49, 
+            "xdnn_instr": "49 XNMaxPool inception_4a/pool 3 3 1 1 1 1 0x0 14 14 480 0x1b2000 14 14 0"
+        }, 
+        {
+            "layer": "inception_4a/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=480, height=1, width=1), sched 49 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4a/pool_proj", 
+            "ops": 12042240, 
+            "schedule": 50, 
+            "xdnn_instr": "50 XNConv inception_4a/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1b2000 14 14 480 0x196000 14 14 64 0"
+        }, 
+        {
+            "layer": "inception_4a/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 50 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4a/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 51, 
+            "xdnn_instr": "# LAYER \"inception_4a/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4a/output: type=Concat, sizes=None, shapes=None, sched 51 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4a/output", 
+            "ops": 0, 
+            "schedule": 52, 
+            "xdnn_instr": "# 52 XNConcat inception_4a/output  0xd2000 0x1b2000 917504 "
+        }, 
+        {
+            "layer": "inception_4b/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=160, channels=512, height=1, width=1), sched 52 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4b/1x1", 
+            "ops": 32112640, 
+            "schedule": 53, 
+            "xdnn_instr": "53 XNConv inception_4b/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0xd2000 14 14 512 0x1b2000 14 14 160 0"
+        }, 
+        {
+            "layer": "inception_4b/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 53 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4b/relu_1x1", 
+            "ops": 0, 
+            "schedule": 54, 
+            "xdnn_instr": "# LAYER \"inception_4b/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4b/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=112, channels=512, height=1, width=1), sched 54 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4b/3x3_reduce", 
+            "ops": 22478848, 
+            "schedule": 55, 
+            "xdnn_instr": "55 XNConv inception_4b/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xd2000 14 14 512 0x0 14 14 112 0"
+        }, 
+        {
+            "layer": "inception_4b/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 55 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4b/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 56, 
+            "xdnn_instr": "# LAYER \"inception_4b/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4b/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=224, channels=112, height=3, width=3), sched 56 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_4b/3x3", 
+            "ops": 88510464, 
+            "schedule": 57, 
+            "xdnn_instr": "57 XNConv inception_4b/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x0 14 14 112 0x1f8000 14 14 224 0"
+        }, 
+        {
+            "layer": "inception_4b/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 57 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4b/relu_3x3", 
+            "ops": 0, 
+            "schedule": 58, 
+            "xdnn_instr": "# LAYER \"inception_4b/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4b/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=24, channels=512, height=1, width=1), sched 58 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4b/5x5_reduce", 
+            "ops": 4816896, 
+            "schedule": 59, 
+            "xdnn_instr": "59 XNConv inception_4b/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xd2000 14 14 512 0x0 14 14 24 0"
+        }, 
+        {
+            "layer": "inception_4b/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 59 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4b/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 60, 
+            "xdnn_instr": "# LAYER \"inception_4b/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4b/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=24, height=5, width=5), sched 60 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_4b/5x5", 
+            "ops": 15052800, 
+            "schedule": 61, 
+            "xdnn_instr": "61 XNConv inception_4b/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x0 14 14 24 0x25a000 14 14 64 0"
+        }, 
+        {
+            "layer": "inception_4b/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 61 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4b/relu_5x5", 
+            "ops": 0, 
+            "schedule": 62, 
+            "xdnn_instr": "# LAYER \"inception_4b/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4b/pool: type=Pooling, sizes=None, shapes=None, sched 62 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_4b/pool", 
+            "ops": 903168, 
+            "schedule": 63, 
+            "xdnn_instr": "63 XNMaxPool inception_4b/pool 3 3 1 1 1 1 0xd2000 14 14 512 0x292000 14 14 0"
+        }, 
+        {
+            "layer": "inception_4b/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=512, height=1, width=1), sched 63 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4b/pool_proj", 
+            "ops": 12845056, 
+            "schedule": 64, 
+            "xdnn_instr": "64 XNConv inception_4b/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x292000 14 14 512 0x276000 14 14 64 0"
+        }, 
+        {
+            "layer": "inception_4b/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 64 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4b/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 65, 
+            "xdnn_instr": "# LAYER \"inception_4b/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4b/output: type=Concat, sizes=None, shapes=None, sched 65 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4b/output", 
+            "ops": 0, 
+            "schedule": 66, 
+            "xdnn_instr": "# 66 XNConcat inception_4b/output  0x1b2000 0x292000 917504 "
+        }, 
+        {
+            "layer": "inception_4c/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=512, height=1, width=1), sched 66 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4c/1x1", 
+            "ops": 25690112, 
+            "schedule": 67, 
+            "xdnn_instr": "67 XNConv inception_4c/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1b2000 14 14 512 0x0 14 14 128 0"
+        }, 
+        {
+            "layer": "inception_4c/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 67 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4c/relu_1x1", 
+            "ops": 0, 
+            "schedule": 68, 
+            "xdnn_instr": "# LAYER \"inception_4c/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4c/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=512, height=1, width=1), sched 68 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4c/3x3_reduce", 
+            "ops": 25690112, 
+            "schedule": 69, 
+            "xdnn_instr": "69 XNConv inception_4c/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1b2000 14 14 512 0xe0000 14 14 128 0"
+        }, 
+        {
+            "layer": "inception_4c/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 69 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4c/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 70, 
+            "xdnn_instr": "# LAYER \"inception_4c/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4c/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=256, channels=128, height=3, width=3), sched 70 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_4c/3x3", 
+            "ops": 115605504, 
+            "schedule": 71, 
+            "xdnn_instr": "71 XNConv inception_4c/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0xe0000 14 14 128 0x38000 14 14 256 0"
+        }, 
+        {
+            "layer": "inception_4c/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 71 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4c/relu_3x3", 
+            "ops": 0, 
+            "schedule": 72, 
+            "xdnn_instr": "# LAYER \"inception_4c/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4c/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=24, channels=512, height=1, width=1), sched 72 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4c/5x5_reduce", 
+            "ops": 4816896, 
+            "schedule": 73, 
+            "xdnn_instr": "73 XNConv inception_4c/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1b2000 14 14 512 0xe0000 14 14 24 0"
+        }, 
+        {
+            "layer": "inception_4c/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 73 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4c/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 74, 
+            "xdnn_instr": "# LAYER \"inception_4c/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4c/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=24, height=5, width=5), sched 74 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_4c/5x5", 
+            "ops": 15052800, 
+            "schedule": 75, 
+            "xdnn_instr": "75 XNConv inception_4c/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0xe0000 14 14 24 0xa8000 14 14 64 0"
+        }, 
+        {
+            "layer": "inception_4c/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 75 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4c/relu_5x5", 
+            "ops": 0, 
+            "schedule": 76, 
+            "xdnn_instr": "# LAYER \"inception_4c/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4c/pool: type=Pooling, sizes=None, shapes=None, sched 76 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_4c/pool", 
+            "ops": 903168, 
+            "schedule": 77, 
+            "xdnn_instr": "77 XNMaxPool inception_4c/pool 3 3 1 1 1 1 0x1b2000 14 14 512 0x292000 14 14 0"
+        }, 
+        {
+            "layer": "inception_4c/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=512, height=1, width=1), sched 77 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4c/pool_proj", 
+            "ops": 12845056, 
+            "schedule": 78, 
+            "xdnn_instr": "78 XNConv inception_4c/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x292000 14 14 512 0xc4000 14 14 64 0"
+        }, 
+        {
+            "layer": "inception_4c/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 78 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4c/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 79, 
+            "xdnn_instr": "# LAYER \"inception_4c/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4c/output: type=Concat, sizes=None, shapes=None, sched 79 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4c/output", 
+            "ops": 0, 
+            "schedule": 80, 
+            "xdnn_instr": "# 80 XNConcat inception_4c/output  0x0 0xe0000 917504 "
+        }, 
+        {
+            "layer": "inception_4d/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=112, channels=512, height=1, width=1), sched 80 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4d/1x1", 
+            "ops": 22478848, 
+            "schedule": 81, 
+            "xdnn_instr": "81 XNConv inception_4d/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 512 0xe0000 14 14 112 0"
+        }, 
+        {
+            "layer": "inception_4d/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 81 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4d/relu_1x1", 
+            "ops": 0, 
+            "schedule": 82, 
+            "xdnn_instr": "# LAYER \"inception_4d/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4d/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=144, channels=512, height=1, width=1), sched 82 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4d/3x3_reduce", 
+            "ops": 28901376, 
+            "schedule": 83, 
+            "xdnn_instr": "83 XNConv inception_4d/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 512 0x1c7000 14 14 144 0"
+        }, 
+        {
+            "layer": "inception_4d/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 83 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4d/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 84, 
+            "xdnn_instr": "# LAYER \"inception_4d/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4d/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=288, channels=144, height=3, width=3), sched 84 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_4d/3x3", 
+            "ops": 146313216, 
+            "schedule": 85, 
+            "xdnn_instr": "85 XNConv inception_4d/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x1c7000 14 14 144 0x111000 14 14 288 0"
+        }, 
+        {
+            "layer": "inception_4d/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 85 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4d/relu_3x3", 
+            "ops": 0, 
+            "schedule": 86, 
+            "xdnn_instr": "# LAYER \"inception_4d/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4d/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=32, channels=512, height=1, width=1), sched 86 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4d/5x5_reduce", 
+            "ops": 6422528, 
+            "schedule": 87, 
+            "xdnn_instr": "87 XNConv inception_4d/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 512 0x1c7000 14 14 32 0"
+        }, 
+        {
+            "layer": "inception_4d/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 87 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4d/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 88, 
+            "xdnn_instr": "# LAYER \"inception_4d/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4d/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=32, height=5, width=5), sched 88 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_4d/5x5", 
+            "ops": 20070400, 
+            "schedule": 89, 
+            "xdnn_instr": "89 XNConv inception_4d/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x1c7000 14 14 32 0x18f000 14 14 64 0"
+        }, 
+        {
+            "layer": "inception_4d/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 89 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4d/relu_5x5", 
+            "ops": 0, 
+            "schedule": 90, 
+            "xdnn_instr": "# LAYER \"inception_4d/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4d/pool: type=Pooling, sizes=None, shapes=None, sched 90 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_4d/pool", 
+            "ops": 903168, 
+            "schedule": 91, 
+            "xdnn_instr": "91 XNMaxPool inception_4d/pool 3 3 1 1 1 1 0x0 14 14 512 0x1c7000 14 14 0"
+        }, 
+        {
+            "layer": "inception_4d/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=64, channels=512, height=1, width=1), sched 91 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4d/pool_proj", 
+            "ops": 12845056, 
+            "schedule": 92, 
+            "xdnn_instr": "92 XNConv inception_4d/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1c7000 14 14 512 0x1ab000 14 14 64 0"
+        }, 
+        {
+            "layer": "inception_4d/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 92 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4d/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 93, 
+            "xdnn_instr": "# LAYER \"inception_4d/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4d/output: type=Concat, sizes=None, shapes=None, sched 93 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4d/output", 
+            "ops": 0, 
+            "schedule": 94, 
+            "xdnn_instr": "# 94 XNConcat inception_4d/output  0xe0000 0x1c7000 946176 "
+        }, 
+        {
+            "layer": "inception_4e/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=256, channels=528, height=1, width=1), sched 94 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4e/1x1", 
+            "ops": 52985856, 
+            "schedule": 95, 
+            "xdnn_instr": "95 XNConv inception_4e/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0xe0000 14 14 528 0x1c7000 14 14 256 0"
+        }, 
+        {
+            "layer": "inception_4e/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 95 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4e/relu_1x1", 
+            "ops": 0, 
+            "schedule": 96, 
+            "xdnn_instr": "# LAYER \"inception_4e/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4e/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=160, channels=528, height=1, width=1), sched 96 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4e/3x3_reduce", 
+            "ops": 33116160, 
+            "schedule": 97, 
+            "xdnn_instr": "97 XNConv inception_4e/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xe0000 14 14 528 0x0 14 14 160 0"
+        }, 
+        {
+            "layer": "inception_4e/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 97 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4e/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 98, 
+            "xdnn_instr": "# LAYER \"inception_4e/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4e/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=320, channels=160, height=3, width=3), sched 98 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_4e/3x3", 
+            "ops": 180633600, 
+            "schedule": 99, 
+            "xdnn_instr": "99 XNConv inception_4e/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x0 14 14 160 0x237000 14 14 320 0"
+        }, 
+        {
+            "layer": "inception_4e/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 99 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4e/relu_3x3", 
+            "ops": 0, 
+            "schedule": 100, 
+            "xdnn_instr": "# LAYER \"inception_4e/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4e/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=32, channels=528, height=1, width=1), sched 100 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4e/5x5_reduce", 
+            "ops": 6623232, 
+            "schedule": 101, 
+            "xdnn_instr": "101 XNConv inception_4e/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xe0000 14 14 528 0x0 14 14 32 0"
+        }, 
+        {
+            "layer": "inception_4e/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 101 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4e/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 102, 
+            "xdnn_instr": "# LAYER \"inception_4e/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4e/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=32, height=5, width=5), sched 102 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_4e/5x5", 
+            "ops": 40140800, 
+            "schedule": 103, 
+            "xdnn_instr": "103 XNConv inception_4e/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x0 14 14 32 0x2c3000 14 14 128 0"
+        }, 
+        {
+            "layer": "inception_4e/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 103 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4e/relu_5x5", 
+            "ops": 0, 
+            "schedule": 104, 
+            "xdnn_instr": "# LAYER \"inception_4e/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4e/pool: type=Pooling, sizes=None, shapes=None, sched 104 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_4e/pool", 
+            "ops": 931392, 
+            "schedule": 105, 
+            "xdnn_instr": "105 XNMaxPool inception_4e/pool 3 3 1 1 1 1 0xe0000 14 14 528 0x333000 14 14 0"
+        }, 
+        {
+            "layer": "inception_4e/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=528, height=1, width=1), sched 105 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_4e/pool_proj", 
+            "ops": 26492928, 
+            "schedule": 106, 
+            "xdnn_instr": "106 XNConv inception_4e/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x333000 14 14 528 0x2fb000 14 14 128 0"
+        }, 
+        {
+            "layer": "inception_4e/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 106 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4e/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 107, 
+            "xdnn_instr": "# LAYER \"inception_4e/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_4e/output: type=Concat, sizes=None, shapes=None, sched 107 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_4e/output", 
+            "ops": 0, 
+            "schedule": 108, 
+            "xdnn_instr": "# 108 XNConcat inception_4e/output  0x1c7000 0x333000 1490944 "
+        }, 
+        {
+            "layer": "pool4/3x3_s2: type=Pooling, sizes=None, shapes=None, sched 108 Kernel [3] Strides [2] Padding [0]", 
+            "name": "pool4/3x3_s2", 
+            "ops": 366912, 
+            "schedule": 109, 
+            "xdnn_instr": "109 XNMaxPool pool4/3x3_s2 3 3 2 2 0 0 0x1c7000 14 14 832 0x0 7 7 0"
+        }, 
+        {
+            "layer": "inception_5a/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=256, channels=832, height=1, width=1), sched 109 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_5a/1x1", 
+            "ops": 20873216, 
+            "schedule": 110, 
+            "xdnn_instr": "110 XNConv inception_5a/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 7 7 832 0xb6000 7 7 256 0"
+        }, 
+        {
+            "layer": "inception_5a/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 110 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5a/relu_1x1", 
+            "ops": 0, 
+            "schedule": 111, 
+            "xdnn_instr": "# LAYER \"inception_5a/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5a/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=160, channels=832, height=1, width=1), sched 111 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_5a/3x3_reduce", 
+            "ops": 13045760, 
+            "schedule": 112, 
+            "xdnn_instr": "112 XNConv inception_5a/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 7 7 832 0x16c000 7 7 160 0"
+        }, 
+        {
+            "layer": "inception_5a/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 112 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5a/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 113, 
+            "xdnn_instr": "# LAYER \"inception_5a/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5a/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=320, channels=160, height=3, width=3), sched 113 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_5a/3x3", 
+            "ops": 45158400, 
+            "schedule": 114, 
+            "xdnn_instr": "114 XNConv inception_5a/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x16c000 7 7 160 0xee000 7 7 320 0"
+        }, 
+        {
+            "layer": "inception_5a/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 114 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5a/relu_3x3", 
+            "ops": 0, 
+            "schedule": 115, 
+            "xdnn_instr": "# LAYER \"inception_5a/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5a/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=32, channels=832, height=1, width=1), sched 115 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_5a/5x5_reduce", 
+            "ops": 2609152, 
+            "schedule": 116, 
+            "xdnn_instr": "116 XNConv inception_5a/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 7 7 832 0x16c000 7 7 32 0"
+        }, 
+        {
+            "layer": "inception_5a/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 116 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5a/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 117, 
+            "xdnn_instr": "# LAYER \"inception_5a/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5a/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=32, height=5, width=5), sched 117 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_5a/5x5", 
+            "ops": 10035200, 
+            "schedule": 118, 
+            "xdnn_instr": "118 XNConv inception_5a/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x16c000 7 7 32 0x134000 7 7 128 0"
+        }, 
+        {
+            "layer": "inception_5a/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 118 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5a/relu_5x5", 
+            "ops": 0, 
+            "schedule": 119, 
+            "xdnn_instr": "# LAYER \"inception_5a/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5a/pool: type=Pooling, sizes=None, shapes=None, sched 119 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_5a/pool", 
+            "ops": 366912, 
+            "schedule": 120, 
+            "xdnn_instr": "120 XNMaxPool inception_5a/pool 3 3 1 1 1 1 0x0 7 7 832 0x16c000 7 7 0"
+        }, 
+        {
+            "layer": "inception_5a/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=832, height=1, width=1), sched 120 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_5a/pool_proj", 
+            "ops": 10436608, 
+            "schedule": 121, 
+            "xdnn_instr": "121 XNConv inception_5a/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x16c000 7 7 832 0x150000 7 7 128 0"
+        }, 
+        {
+            "layer": "inception_5a/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 121 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5a/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 122, 
+            "xdnn_instr": "# LAYER \"inception_5a/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5a/output: type=Concat, sizes=None, shapes=None, sched 122 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5a/output", 
+            "ops": 0, 
+            "schedule": 123, 
+            "xdnn_instr": "# 123 XNConcat inception_5a/output  0xb6000 0x16c000 745472 "
+        }, 
+        {
+            "layer": "inception_5b/1x1: type=Convolution, sizes=None, shapes=SizeType(batches=384, channels=832, height=1, width=1), sched 123 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_5b/1x1", 
+            "ops": 31309824, 
+            "schedule": 124, 
+            "xdnn_instr": "124 XNConv inception_5b/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0xb6000 7 7 832 0x16c000 7 7 384 0"
+        }, 
+        {
+            "layer": "inception_5b/relu_1x1: type=ReLU, sizes=None, shapes=[0], sched 124 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5b/relu_1x1", 
+            "ops": 0, 
+            "schedule": 125, 
+            "xdnn_instr": "# LAYER \"inception_5b/relu_1x1\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5b/3x3_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=192, channels=832, height=1, width=1), sched 125 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_5b/3x3_reduce", 
+            "ops": 15654912, 
+            "schedule": 126, 
+            "xdnn_instr": "126 XNConv inception_5b/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xb6000 7 7 832 0x0 7 7 192 0"
+        }, 
+        {
+            "layer": "inception_5b/relu_3x3_reduce: type=ReLU, sizes=None, shapes=[0], sched 126 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5b/relu_3x3_reduce", 
+            "ops": 0, 
+            "schedule": 127, 
+            "xdnn_instr": "# LAYER \"inception_5b/relu_3x3_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5b/3x3: type=Convolution, sizes=None, shapes=SizeType(batches=384, channels=192, height=3, width=3), sched 127 Kernel [3L] Strides [] Padding [1L]", 
+            "name": "inception_5b/3x3", 
+            "ops": 65028096, 
+            "schedule": 128, 
+            "xdnn_instr": "128 XNConv inception_5b/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x0 7 7 192 0x1c0000 7 7 384 0"
+        }, 
+        {
+            "layer": "inception_5b/relu_3x3: type=ReLU, sizes=None, shapes=[0], sched 128 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5b/relu_3x3", 
+            "ops": 0, 
+            "schedule": 129, 
+            "xdnn_instr": "# LAYER \"inception_5b/relu_3x3\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5b/5x5_reduce: type=Convolution, sizes=None, shapes=SizeType(batches=48, channels=832, height=1, width=1), sched 129 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_5b/5x5_reduce", 
+            "ops": 3913728, 
+            "schedule": 130, 
+            "xdnn_instr": "130 XNConv inception_5b/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xb6000 7 7 832 0x0 7 7 48 0"
+        }, 
+        {
+            "layer": "inception_5b/relu_5x5_reduce: type=ReLU, sizes=None, shapes=[0], sched 130 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5b/relu_5x5_reduce", 
+            "ops": 0, 
+            "schedule": 131, 
+            "xdnn_instr": "# LAYER \"inception_5b/relu_5x5_reduce\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5b/5x5: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=48, height=5, width=5), sched 131 Kernel [5L] Strides [] Padding [2L]", 
+            "name": "inception_5b/5x5", 
+            "ops": 15052800, 
+            "schedule": 132, 
+            "xdnn_instr": "132 XNConv inception_5b/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x0 7 7 48 0x214000 7 7 128 0"
+        }, 
+        {
+            "layer": "inception_5b/relu_5x5: type=ReLU, sizes=None, shapes=[0], sched 132 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5b/relu_5x5", 
+            "ops": 0, 
+            "schedule": 133, 
+            "xdnn_instr": "# LAYER \"inception_5b/relu_5x5\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5b/pool: type=Pooling, sizes=None, shapes=None, sched 133 Kernel [3] Strides [1] Padding [1]", 
+            "name": "inception_5b/pool", 
+            "ops": 366912, 
+            "schedule": 134, 
+            "xdnn_instr": "134 XNMaxPool inception_5b/pool 3 3 1 1 1 1 0xb6000 7 7 832 0x0 7 7 0"
+        }, 
+        {
+            "layer": "inception_5b/pool_proj: type=Convolution, sizes=None, shapes=SizeType(batches=128, channels=832, height=1, width=1), sched 134 Kernel [1L] Strides [] Padding [0, 0]", 
+            "name": "inception_5b/pool_proj", 
+            "ops": 10436608, 
+            "schedule": 135, 
+            "xdnn_instr": "135 XNConv inception_5b/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 7 7 832 0x230000 7 7 128 0"
+        }, 
+        {
+            "layer": "inception_5b/relu_pool_proj: type=ReLU, sizes=None, shapes=[0], sched 135 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5b/relu_pool_proj", 
+            "ops": 0, 
+            "schedule": 136, 
+            "xdnn_instr": "# LAYER \"inception_5b/relu_pool_proj\" [u'ReLU'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "inception_5b/output: type=Concat, sizes=None, shapes=None, sched 136 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "inception_5b/output", 
+            "ops": 0, 
+            "schedule": 137, 
+            "xdnn_instr": "# 137 XNConcat inception_5b/output  0x16c000 0x24c000 917504 "
+        }, 
+        {
+            "layer": "pool5/7x7_s1: type=Pooling, sizes=None, shapes=None, sched 137 Kernel [7] Strides [1] Padding [0]", 
+            "name": "pool5/7x7_s1", 
+            "ops": 50176, 
+            "schedule": 138, 
+            "xdnn_instr": "138 XNAvgPool pool5/7x7_s1 7 7 1 1 0 0 1 0x16c000 7 7 1024 0x0 1 1 0"
+        }, 
+        {
+            "layer": "pool5/drop_7x7_s1: type=Dropout, sizes=None, shapes=None, sched 138 Kernel None Strides None Padding None  REDUNDANT CODE OMMITTED ", 
+            "name": "pool5/drop_7x7_s1", 
+            "ops": 0, 
+            "schedule": 139, 
+            "xdnn_instr": "# LAYER \"pool5/drop_7x7_s1\" [u'Dropout'] ['inplace_layer']"
+        }, 
+        {
+            "layer": "loss3/classifier: type=InnerProduct, sizes=None, shapes=[[1000, 1024], [1000]], sched 139 Kernel None Strides None Padding None  NO VALID CODE  ", 
+            "name": "loss3/classifier", 
+            "ops": 0, 
+            "schedule": 140, 
+            "xdnn_instr": "# ## 140 XNInner loss3/classifier 16 26 2 0x0 1 1024 0x20000 1000 1000"
+        }, 
+        {
+            "layer": "prob: type=Softmax, sizes=None, shapes=None, sched 140 Kernel None Strides None Padding None  NO VALID CODE  ", 
+            "name": "prob", 
+            "ops": 0, 
+            "schedule": 141, 
+            "xdnn_instr": "# # LAYER prob [u'Softmax'] ['layer']"
+        }
+    ], 
+    "ops": 3176103168, 
+    "unsupported": {
+        "count": 3, 
+        "list": {
+            "data": [
+                "# LAYER data [u'Input'] ['layer']", 
+                "data: type=Input, sizes=None, shapes=None, sched 0 Kernel None Strides None Padding None  NO VALID CODE  "
+            ], 
+            "loss3/classifier": [
+                "## 140 XNInner loss3/classifier 16 26 2 0x0 1 1024 0x20000 1000 1000", 
+                "loss3/classifier: type=InnerProduct, sizes=None, shapes=[[1000, 1024], [1000]], sched 139 Kernel None Strides None Padding None  NO VALID CODE  "
+            ], 
+            "prob": [
+                "# LAYER prob [u'Softmax'] ['layer']", 
+                "prob: type=Softmax, sizes=None, shapes=None, sched 140 Kernel None Strides None Padding None  NO VALID CODE  "
+            ]
+        }
+    }, 
+    "version": "0.1.4"
+}

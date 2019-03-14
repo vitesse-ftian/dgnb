@@ -1,0 +1,148 @@
+# template <id> XNMaxPool <kernel_w> <kernel_h>  <strides_w> <strides_h> <paddings_w> <paddings_h>  <inaddr> <insize_w> <insize_h> <inchan> <outaddr> <outsize_w> <outsize_h> <Bypass_Perf_Opt>
+# template <id> XNAvgPool <kernel_w> <kernel_h>  <strides_w> <strides_h> <paddings_w> <paddings_h> <fcmode> <inaddr> <insize_w> <insize_h> <inchan> <outaddr> <outsize_w> <outsize_h> <Bypass_Perf_Opt>
+# template <id> XNConv <layername> <kernel_w> <kernel_h> <strides_w> <strides_h> <padding_w> <padding_h> <dilation_w> <dilation_h> <preshift> <scale> <postshift> <relu> <bias> <inaddr> <insize_w> <insize_h> <inchan> <outaddr> <outsize_w> <outsize_h>  <outchan> <Bypass_Perf_Opt> 
+# template <id> XNGather  <uram_dest> <ddr_src> <input_w> <input_h> <input_chan> 0 1 1 <start_row> <end_row>
+# template <id> XNUpload <inaddr> <insize> <inchan>
+# template <id> XNEltWise <name> <add> <bn> <relu> <inaddrA> <inaddrB> <insize_w> <insize_h> <inchan> <outaddr> <Bypass_Perf_Opt>
+# template <id> XNScatter <uram_src> <ddr_dest> <input_w> <input_h> <input_chan> 0 1 1 <start_row> <end_row>
+# # LAYER data [u'Input'] ['layer'] data: type=Input, sizes=None, shapes=None, sched 0 Kernel None Strides None Padding None  NO VALID CODE  
+3 XNConv conv1/7x7_s2 7 7 2 2 3 3 1 1 16 26 2 1 1 0x0 224 224 3 0x70000 112 112 64 0
+# LAYER "conv1/relu_7x7" [u'ReLU'] ['inplace_layer']
+7 XNMaxPool pool1/3x3_s2 3 3 2 2 0 0 0x70000 112 112 64 0x0 56 56 0
+9 XNConv conv2/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 56 56 64 0x70000 56 56 64 0
+# LAYER "conv2/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+13 XNConv conv2/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x70000 56 56 64 0xe0000 56 56 192 0
+# LAYER "conv2/relu_3x3" [u'ReLU'] ['inplace_layer']
+17 XNMaxPool pool2/3x3_s2 3 3 2 2 0 0 0xe0000 56 56 192 0x0 28 28 0
+19 XNConv inception_3a/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 28 28 192 0xa8000 28 28 64 0
+# LAYER "inception_3a/relu_1x1" [u'ReLU'] ['inplace_layer']
+23 XNConv inception_3a/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 28 28 192 0x188000 28 28 96 0
+# LAYER "inception_3a/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+27 XNConv inception_3a/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x188000 28 28 96 0xe0000 28 28 128 0
+# LAYER "inception_3a/relu_3x3" [u'ReLU'] ['inplace_layer']
+31 XNConv inception_3a/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 28 28 192 0x188000 28 28 16 0
+# LAYER "inception_3a/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+35 XNConv inception_3a/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x188000 28 28 16 0x150000 28 28 32 0
+# LAYER "inception_3a/relu_5x5" [u'ReLU'] ['inplace_layer']
+39 XNMaxPool inception_3a/pool 3 3 1 1 1 1 0x0 28 28 192 0x188000 28 28 0
+41 XNConv inception_3a/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x188000 28 28 192 0x16c000 28 28 32 0
+# LAYER "inception_3a/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 45 XNConcat inception_3a/output  0xa8000 0x188000 917504 
+47 XNConv inception_3b/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0xa8000 28 28 256 0x188000 28 28 128 0
+# LAYER "inception_3b/relu_1x1" [u'ReLU'] ['inplace_layer']
+51 XNConv inception_3b/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xa8000 28 28 256 0x0 28 28 128 0
+# LAYER "inception_3b/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+55 XNConv inception_3b/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x0 28 28 128 0x1f8000 28 28 192 0
+# LAYER "inception_3b/relu_3x3" [u'ReLU'] ['inplace_layer']
+59 XNConv inception_3b/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xa8000 28 28 256 0x0 28 28 32 0
+# LAYER "inception_3b/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+63 XNConv inception_3b/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x0 28 28 32 0x2a0000 28 28 96 0
+# LAYER "inception_3b/relu_5x5" [u'ReLU'] ['inplace_layer']
+67 XNMaxPool inception_3b/pool 3 3 1 1 1 1 0xa8000 28 28 256 0x32c000 28 28 0
+69 XNConv inception_3b/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x32c000 28 28 256 0x2f4000 28 28 64 0
+# LAYER "inception_3b/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 73 XNConcat inception_3b/output  0x188000 0x32c000 1720320 
+75 XNMaxPool pool3/3x3_s2 3 3 2 2 0 0 0x188000 28 28 480 0x0 14 14 0
+77 XNConv inception_4a/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 480 0xd2000 14 14 192 0
+# LAYER "inception_4a/relu_1x1" [u'ReLU'] ['inplace_layer']
+81 XNConv inception_4a/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 480 0x1b2000 14 14 96 0
+# LAYER "inception_4a/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+85 XNConv inception_4a/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x1b2000 14 14 96 0x126000 14 14 208 0
+# LAYER "inception_4a/relu_3x3" [u'ReLU'] ['inplace_layer']
+89 XNConv inception_4a/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 480 0x1b2000 14 14 16 0
+# LAYER "inception_4a/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+93 XNConv inception_4a/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x1b2000 14 14 16 0x181000 14 14 48 0
+# LAYER "inception_4a/relu_5x5" [u'ReLU'] ['inplace_layer']
+97 XNMaxPool inception_4a/pool 3 3 1 1 1 1 0x0 14 14 480 0x1b2000 14 14 0
+99 XNConv inception_4a/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1b2000 14 14 480 0x196000 14 14 64 0
+# LAYER "inception_4a/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 103 XNConcat inception_4a/output  0xd2000 0x1b2000 917504 
+105 XNConv inception_4b/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0xd2000 14 14 512 0x1b2000 14 14 160 0
+# LAYER "inception_4b/relu_1x1" [u'ReLU'] ['inplace_layer']
+109 XNConv inception_4b/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xd2000 14 14 512 0x0 14 14 112 0
+# LAYER "inception_4b/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+113 XNConv inception_4b/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x0 14 14 112 0x1f8000 14 14 224 0
+# LAYER "inception_4b/relu_3x3" [u'ReLU'] ['inplace_layer']
+117 XNConv inception_4b/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xd2000 14 14 512 0x0 14 14 24 0
+# LAYER "inception_4b/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+121 XNConv inception_4b/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x0 14 14 24 0x25a000 14 14 64 0
+# LAYER "inception_4b/relu_5x5" [u'ReLU'] ['inplace_layer']
+125 XNMaxPool inception_4b/pool 3 3 1 1 1 1 0xd2000 14 14 512 0x292000 14 14 0
+127 XNConv inception_4b/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x292000 14 14 512 0x276000 14 14 64 0
+# LAYER "inception_4b/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 131 XNConcat inception_4b/output  0x1b2000 0x292000 917504 
+133 XNConv inception_4c/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1b2000 14 14 512 0x0 14 14 128 0
+# LAYER "inception_4c/relu_1x1" [u'ReLU'] ['inplace_layer']
+137 XNConv inception_4c/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1b2000 14 14 512 0xe0000 14 14 128 0
+# LAYER "inception_4c/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+141 XNConv inception_4c/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0xe0000 14 14 128 0x38000 14 14 256 0
+# LAYER "inception_4c/relu_3x3" [u'ReLU'] ['inplace_layer']
+145 XNConv inception_4c/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1b2000 14 14 512 0xe0000 14 14 24 0
+# LAYER "inception_4c/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+149 XNConv inception_4c/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0xe0000 14 14 24 0xa8000 14 14 64 0
+# LAYER "inception_4c/relu_5x5" [u'ReLU'] ['inplace_layer']
+153 XNMaxPool inception_4c/pool 3 3 1 1 1 1 0x1b2000 14 14 512 0x292000 14 14 0
+155 XNConv inception_4c/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x292000 14 14 512 0xc4000 14 14 64 0
+# LAYER "inception_4c/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 159 XNConcat inception_4c/output  0x0 0xe0000 917504 
+161 XNConv inception_4d/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 512 0xe0000 14 14 112 0
+# LAYER "inception_4d/relu_1x1" [u'ReLU'] ['inplace_layer']
+165 XNConv inception_4d/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 512 0x1c7000 14 14 144 0
+# LAYER "inception_4d/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+169 XNConv inception_4d/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x1c7000 14 14 144 0x111000 14 14 288 0
+# LAYER "inception_4d/relu_3x3" [u'ReLU'] ['inplace_layer']
+173 XNConv inception_4d/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 14 14 512 0x1c7000 14 14 32 0
+# LAYER "inception_4d/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+177 XNConv inception_4d/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x1c7000 14 14 32 0x18f000 14 14 64 0
+# LAYER "inception_4d/relu_5x5" [u'ReLU'] ['inplace_layer']
+181 XNMaxPool inception_4d/pool 3 3 1 1 1 1 0x0 14 14 512 0x1c7000 14 14 0
+183 XNConv inception_4d/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x1c7000 14 14 512 0x1ab000 14 14 64 0
+# LAYER "inception_4d/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 187 XNConcat inception_4d/output  0xe0000 0x1c7000 946176 
+189 XNConv inception_4e/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0xe0000 14 14 528 0x1c7000 14 14 256 0
+# LAYER "inception_4e/relu_1x1" [u'ReLU'] ['inplace_layer']
+193 XNConv inception_4e/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xe0000 14 14 528 0x0 14 14 160 0
+# LAYER "inception_4e/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+197 XNConv inception_4e/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x0 14 14 160 0x237000 14 14 320 0
+# LAYER "inception_4e/relu_3x3" [u'ReLU'] ['inplace_layer']
+201 XNConv inception_4e/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xe0000 14 14 528 0x0 14 14 32 0
+# LAYER "inception_4e/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+205 XNConv inception_4e/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x0 14 14 32 0x2c3000 14 14 128 0
+# LAYER "inception_4e/relu_5x5" [u'ReLU'] ['inplace_layer']
+209 XNMaxPool inception_4e/pool 3 3 1 1 1 1 0xe0000 14 14 528 0x333000 14 14 0
+211 XNConv inception_4e/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x333000 14 14 528 0x2fb000 14 14 128 0
+# LAYER "inception_4e/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 215 XNConcat inception_4e/output  0x1c7000 0x333000 1490944 
+217 XNMaxPool pool4/3x3_s2 3 3 2 2 0 0 0x1c7000 14 14 832 0x0 7 7 0
+219 XNConv inception_5a/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 7 7 832 0xb6000 7 7 256 0
+# LAYER "inception_5a/relu_1x1" [u'ReLU'] ['inplace_layer']
+223 XNConv inception_5a/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 7 7 832 0x16c000 7 7 160 0
+# LAYER "inception_5a/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+227 XNConv inception_5a/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x16c000 7 7 160 0xee000 7 7 320 0
+# LAYER "inception_5a/relu_3x3" [u'ReLU'] ['inplace_layer']
+231 XNConv inception_5a/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 7 7 832 0x16c000 7 7 32 0
+# LAYER "inception_5a/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+235 XNConv inception_5a/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x16c000 7 7 32 0x134000 7 7 128 0
+# LAYER "inception_5a/relu_5x5" [u'ReLU'] ['inplace_layer']
+239 XNMaxPool inception_5a/pool 3 3 1 1 1 1 0x0 7 7 832 0x16c000 7 7 0
+241 XNConv inception_5a/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x16c000 7 7 832 0x150000 7 7 128 0
+# LAYER "inception_5a/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 245 XNConcat inception_5a/output  0xb6000 0x16c000 745472 
+247 XNConv inception_5b/1x1 1 1 1 1 0 0 1 1 16 26 2 1 1 0xb6000 7 7 832 0x16c000 7 7 384 0
+# LAYER "inception_5b/relu_1x1" [u'ReLU'] ['inplace_layer']
+251 XNConv inception_5b/3x3_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xb6000 7 7 832 0x0 7 7 192 0
+# LAYER "inception_5b/relu_3x3_reduce" [u'ReLU'] ['inplace_layer']
+255 XNConv inception_5b/3x3 3 3 1 1 1 1 1 1 16 26 2 1 1 0x0 7 7 192 0x1c0000 7 7 384 0
+# LAYER "inception_5b/relu_3x3" [u'ReLU'] ['inplace_layer']
+259 XNConv inception_5b/5x5_reduce 1 1 1 1 0 0 1 1 16 26 2 1 1 0xb6000 7 7 832 0x0 7 7 48 0
+# LAYER "inception_5b/relu_5x5_reduce" [u'ReLU'] ['inplace_layer']
+263 XNConv inception_5b/5x5 5 5 1 1 2 2 1 1 16 26 2 1 1 0x0 7 7 48 0x214000 7 7 128 0
+# LAYER "inception_5b/relu_5x5" [u'ReLU'] ['inplace_layer']
+267 XNMaxPool inception_5b/pool 3 3 1 1 1 1 0xb6000 7 7 832 0x0 7 7 0
+269 XNConv inception_5b/pool_proj 1 1 1 1 0 0 1 1 16 26 2 1 1 0x0 7 7 832 0x230000 7 7 128 0
+# LAYER "inception_5b/relu_pool_proj" [u'ReLU'] ['inplace_layer']
+# 273 XNConcat inception_5b/output  0x16c000 0x24c000 917504 
+275 XNAvgPool pool5/7x7_s1 7 7 1 1 0 0 1 0x16c000 7 7 1024 0x0 1 1 0
+# LAYER "pool5/drop_7x7_s1" [u'Dropout'] ['inplace_layer']
+# ## 279 XNInner loss3/classifier 16 26 2 0x0 1 1024 0x20000 1000 1000 loss3/classifier: type=InnerProduct, sizes=None, shapes=[[1000, 1024], [1000]], sched 139 Kernel None Strides None Padding None  NO VALID CODE  
+# # LAYER prob [u'Softmax'] ['layer'] prob: type=Softmax, sizes=None, shapes=None, sched 140 Kernel None Strides None Padding None  NO VALID CODE  
